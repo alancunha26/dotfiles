@@ -149,3 +149,17 @@ Open up a Terminal, and run the following command.
 ```bash
 yay -S lutris
 ```
+
+### Download and Install the dotfiles
+
+First you need to download the dotifles from the git repository:
+
+```shell
+git clone git@github.com:alancunha26/Dotfiles.git ~/Dotfiles
+```
+
+Then you have to run the following command to _symlink_ these dotfiles into your _/home_ directory.
+
+```shell
+cd ~/Dotfiles && stow .
+```
