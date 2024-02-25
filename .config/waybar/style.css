@@ -1,0 +1,235 @@
+/*
+ * __        __          _                  ____  _         _       
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
+ *                 |___/                              |___/         
+ *  
+ * by Stephan Raabe (2023) 
+ * ----------------------------------------------------- 
+*/
+
+/* -----------------------------------------------------
+ * Color Scheme
+ * ----------------------------------------------------- */
+
+@define-color background #000000;
+@define-color foreground #222222;
+@define-color textcolor #ffffff;
+
+* {
+  font-family: "Fira Sans Semibold", Roboto, Helvetica, Arial, sans-serif;
+  border: none;
+  border-radius: 0px;
+  font-size: 16px;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.2);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+#workspaces {
+  margin: 5px 1px 6px 1px;
+  padding: 0px 1px;
+  border-radius: 15px;
+  border: 0px;
+  font-weight: bold;
+  font-style: normal;
+  opacity: 0.8;
+  color: @textcolor;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  margin: 4px 3px;
+  border-radius: 15px;
+  border: 0px;
+  color: @textcolor;
+  background-color: @foreground;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+#workspaces button.active {
+  color: @textcolor;
+  border-radius: 15px;
+  min-width: 40px;
+  transition: all 0.3s ease-in-out;
+  opacity: 1;
+}
+
+#workspaces button:hover {
+  color: @textcolor;
+  border-radius: 15px;
+  opacity: 1;
+}
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+  border-radius: 10px;
+  background-color: @background;
+  opacity: 0.8;
+  padding: 20px;
+  margin: 0px;
+}
+
+tooltip label {
+  color: @textcolor;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+#window {
+  border-radius: 8px;
+  color: @textcolor2;
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+  margin: 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+  opacity: 0.8;
+  color: @textcolor;
+}
+
+#idle_inhibitor.activated {
+  font-weight: bold;
+  opacity: 0.8;
+  color: #dc2f2f;
+}
+
+/* -----------------------------------------------------
+ * Custom Modules
+ * ----------------------------------------------------- */
+
+#custom-appmenu {
+  font-size: 20px;
+  color: @textcolor;
+  margin: 0 8px;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+  margin: 0 8px;
+  color: @textcolor;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Custom Updates
+ * ----------------------------------------------------- */
+
+#custom-updates {
+  color: @textcolor;
+  margin: 0 8px;
+  opacity: 0.8;
+}
+
+#custom-updates.green {
+  color: #ffffff;
+}
+
+#custom-updates.yellow {
+  color: #ff9a3c;
+}
+
+#custom-updates.red {
+  color: #dc2f2f;
+}
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+  color: @textcolor;
+  margin: 0 8px;
+  opacity: 0.8;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+  color: @textcolor;
+  margin: 0 8px;
+  opacity: 0.8;
+}
+
+#pulseaudio.muted {
+  color: @textcolor;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+  color: @textcolor;
+  margin: 0 8px;
+  opacity: 0.8;
+}
+
+#network.ethernet {
+  color: @textcolor;
+}
+
+#network.wifi {
+  color: @textcolor;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+  padding: 0px 15px 0px 0px;
+  color: @textcolor;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
