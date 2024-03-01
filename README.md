@@ -57,7 +57,7 @@ npm --global install yarn
 For the system to work correctly it's important to have all the following packages installed:
 
 ```shell
-yay -Sy neovim thunar polkit polkit-gnome cliphist wl-clipboard ripgrep neofetch noto-fonts-emoji noto-fonts ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono zsh starship xdg-ninja kitty wget unzip xdg-user-dirs gtk3 htop slurp grim waybar pavucontrol swaylock swayidle pacseek gum swww ntfs-3g nsxiv mpv zathura rofi-lbonn-wayland papirus-icon-theme stow
+yay -Sy neovim thunar polkit polkit-gnome cliphist wl-clipboard ripgrep neofetch noto-fonts-emoji noto-fonts ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono zsh starship xdg-ninja kitty wget unzip xdg-user-dirs gtk3 htop slurp grim waybar pavucontrol swaylock swayidle pacseek gum swww ntfs-3g nsxiv mpv zathura rofi-lbonn-wayland papirus-icon-theme stow pipewire pipewire-pulse wireplumber
 ```
 
 ### Install Oh-My-Zsh!
