@@ -24,3 +24,5 @@ sleep 2
 /usr/lib/xdg-desktop-portal &
 sleep 1
 
+dbus-update-activation-environment --systemd --all
+systemctl --user import-environment QT_QPA_PLATFORMTHEME
