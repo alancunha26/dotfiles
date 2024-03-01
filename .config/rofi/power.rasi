@@ -18,7 +18,7 @@ configuration {
 * {
   /* Resolution : 1920x1080 */
   box-spacing:                 50px;
-  box-margin:                  370px 350px;
+  box-margin:                  270px 140px;
   message-margin:              0px 350px;
   inputbar-spacing:            0px;
   list-spacing:                50px;
