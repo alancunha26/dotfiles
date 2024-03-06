@@ -61,7 +61,8 @@
   },
 
   "hyprland/window": {
-    "separate-outputs": true
+    "separate-outputs": true,
+    "max-length": 40
   },
 
   "tray": {
@@ -85,7 +86,7 @@
   "pulseaudio#output": {
     "format": "{icon} {volume}%",
     "format-muted": "󰖁 Mute",
-    "format-icons": { "default": [" ", " ", " "] },
+    "format-icons": { "default": ["", "", ""] },
     "max-volume": 100,
     "scroll-step": 1,
     "smooth-scrolling-threshold": 1,
@@ -107,7 +108,7 @@
   },
 
   "custom/updates": {
-      "format": "  {}",
+      "format": " {}",
       "tooltip-format": "{}",
       "escape": true,
       "return-type": "json",       
@@ -137,7 +138,7 @@
   "clock": {
     "timezone": "America/Sao_Paulo",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%a %d %b  %H:%M}"
+    "format": "{:%a %d %b %H:%M}"
   }
 }
 

@@ -19,6 +19,7 @@ configuration {
 @import                          "~/.cache/kitty-os/rofi-theme.rasi"
 
 * {
+  font:                        "JetBrains Mono Nerd Font 10";
   border-colour:               var(selected);
   handle-colour:               var(foreground);
   background-colour:           var(background);

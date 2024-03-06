@@ -19,10 +19,11 @@
 @define-color textcolor #ffffff;
 
 * {
-  font-family: "Fira Sans Semibold", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
   border: none;
   border-radius: 0px;
   font-size: 16px;
+  font-weight: bold;
 }
 
 window#waybar {
@@ -95,6 +96,8 @@ tooltip label {
   border-radius: 8px;
   color: @textcolor2;
   font-weight: normal;
+  margin-left: 48px;
+  margin-right: 48px;
   opacity: 0.8;
 }
 
