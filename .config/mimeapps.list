@@ -2,6 +2,7 @@
 image/png=nsxiv.desktop;feh.desktop;
 image/jpeg=nsxiv.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=org.pwmt.zathura.desktop;
+image/svg+xml=firefox.desktop;
 
 [Default Applications]
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=org.pwmt.zathura.desktop
