@@ -10,7 +10,6 @@ M.treesitter = {
 		"javascript",
 		"typescript",
 		"tsx",
-		"c",
 		"markdown",
 		"markdown_inline",
 	},
@@ -33,14 +32,9 @@ M.mason = {
 		"html-lsp",
 		"typescript-language-server",
 		"tailwindcss-language-server",
-		"emmet-ls",
-		"deno",
+    "emmet-language-server",
 		"prettier",
 		"eslint_d",
-
-		-- c/cpp stuff
-		"clangd",
-		"clang-format",
 	},
 }
 

@@ -1,4 +1,5 @@
 local null_ls = require "null-ls"
+local null_ls_h = require "null-ls.helpers"
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -8,11 +9,7 @@ local sources = {
   -- Lua
   formatting.stylua,
 
-  -- cpp
-  formatting.clang_format,
-
   -- typescript/javascript
-  -- b.formatting.deno_fmt, -- choosed deno for ts/js files cuz its very fast!
   formatting.prettier.with {
     filetypes = {
       "html",
