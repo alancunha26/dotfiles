@@ -1,0 +1,11 @@
+/**
+ *
+ * Author : Alan Cunha
+ * Github : @alancunha26
+ * 
+ * Rofi Default File
+ * Rofi Version: 1.0.0
+ **/
+
+@import "~/.config/rofi/default.rasi"
+

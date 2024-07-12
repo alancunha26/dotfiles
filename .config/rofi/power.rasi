@@ -18,7 +18,7 @@ configuration {
 * {
   /* Resolution : 1920x1080 */
   box-spacing:                 50px;
-  box-margin:                  370px 350px;
+  box-margin:                  270px 140px;
   message-margin:              0px 350px;
   inputbar-spacing:            0px;
   list-spacing:                50px;
@@ -26,7 +26,7 @@ configuration {
   element-padding:             55px 10px;
   element-radius:              20px;
   general-radius:              100%;
-  element-font:                "feather 48";
+  element-font:                "JetBrains Mono Nerd Font 48";
 }
 
 /*****----- Main Window -----*****/
