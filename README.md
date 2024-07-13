@@ -112,10 +112,7 @@ yay -R gnome-console epiphany vim
 ```shell
 sudo pacman -Rsn $(pacman -Qdtq)
 ```
-```shell
-git clone https://github.com/jeffreytse/zsh-vi-mode \
-  $ZSH_CUSTOM/plugins/zsh-vi-mode
-```
+
 ### Install NVIDIA Support (Optional)
 
 Do this ONLY if you need Nvidia support (do this first)
