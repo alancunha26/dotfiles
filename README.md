@@ -239,3 +239,4 @@ Then you have to run the following command to _symlink_ these dotfiles into your
 ```shell
 cd ~/Dotfiles && stow .
 ```
+
