@@ -1,3 +1,4 @@
+
 My dotfiles will install a fully-featured tiling window manager environment on any Arch Linux based system, with custom theming, gaming on linux, completely keyboard-centric functionality (vim-motions) and a lot more.
 
 -> [How to dual boot arch linux and Windows 10/11 using archinstall script (UPDATED)!!!!!!](https://www.youtube.com/watch?v=Np6k3Pilz-I)
@@ -14,7 +15,7 @@ To configure and install the other packages and tools, you will have to install 
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
-### Install ASDF, NodeJS and Yarn
+### Install ASDF, NodeJS, Yarn and Rust
 
 Download ASDF from the original repository:
 
@@ -52,12 +53,30 @@ Finally install yarn:
 npm --global install yarn
 ```
 
+Add Rust to the ASDF plugins list:
+
+```shell
+asdf plugin add rust
+```
+
+Install the stable version of rust:
+
+```shell
+asdf install rust stable
+```
+
+Set the stable version of rust globally:
+
+```shell
+asdf global nodejs stable
+```
+
 ### Install Base Packages
 
 For the system to work correctly it's important to have all the following packages installed:
 
 ```shell
-yay -Sy neovim thunar polkit polkit-gnome cliphist wl-clipboard ripgrep neofetch noto-fonts-emoji noto-fonts ttf-fira-sans ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono zsh starship xdg-ninja kitty wget unzip xdg-user-dirs gtk3 htop slurp grim waybar pavucontrol swaylock swayidle pacseek gum swww ntfs-3g nsxiv mpv zathura rofi-lbonn-wayland papirus-icon-theme stow
+yay -Sy neovim ripgrep neofetch zsh starship xdg-ninja stow file-roller obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
 ```
 
 ### Install Oh-My-Zsh!
@@ -82,24 +101,57 @@ git clone https://github.com/jeffreytse/zsh-vi-mode \
   $ZSH_CUSTOM/plugins/zsh-vi-mode
 ```
 
-### Install NvChad from the original repository
-
-For neovim configuration I use NvChad as a base configuration.
-
-```shell
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-```
-
 ### Remove Unused Packages (Optional)
 
 When installing Hyprland from the **archinstall** profile, a lot of unused packages will be installed, so to remove clutter you can remove these packages.
 
 ```shell
-yay -R dolphin wofi nm-connection-editor
+yay -R gnome-console epiphany vim
 ```
 
 ```shell
 sudo pacman -Rsn $(pacman -Qdtq)
+```
+```shell
+git clone https://github.com/jeffreytse/zsh-vi-mode \
+  $ZSH_CUSTOM/plugins/zsh-vi-mode
+```
+### Install NVIDIA Support (Optional)
+
+Do this ONLY if you need Nvidia support (do this first)
+
+```shell
+yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
+```
+
+/etc/mkinitcpio.conf
+
+```shell
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+
+generate a new initramfs image
+
+```shell
+sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
+```
+
+Create NVIDIA Configuration
+
+```shell
+echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
+```
+
+verify
+
+```shell
+cat /etc/modprobe.d/nvidia.conf
+```
+
+shoud return:
+
+```shell
+options nvidia-drm modeset=1
 ```
 
 ### Install Gaming Packages (Optional)
