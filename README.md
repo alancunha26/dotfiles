@@ -5,7 +5,7 @@ My dotfiles will install a fully-featured tiling window manager environment on a
 
 ## Manual Installing Dotfiles
 
-First you need to install ArchLinux with the `archinstall` script using the **Hyprland** profile.
+First you need to install ArchLinux with the `archinstall` script using the **Gnome** profile.
 
 ### Install Yay and Git
 
@@ -13,6 +13,86 @@ To configure and install the other packages and tools, you will have to install 
 
 ```shell
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+### Install Base Packages
+
+For the system to work correctly it's important to have all the following packages installed:
+
+```shell
+yay -Sy neovim ripgrep neofetch zsh starship xdg-ninja stow file-roller obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono gnome-shell-extension-caffeine gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection-desktop gnome-shell-extension-tilingshell gnome-shell-extensions-useless-gaps
+```
+
+### Install Oh-My-Zsh!
+
+To proceed run the following command
+
+```shell
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+Next, install the **zsh autosuggestions** plugin:
+
+```shell
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+  $ZSH_CUSTOM/plugins/zsh-autosuggestions
+```
+
+Then, install the **zsh vi mode** plugin:
+
+```shell
+git clone https://github.com/jeffreytse/zsh-vi-mode \
+  $ZSH_CUSTOM/plugins/zsh-vi-mode
+```
+
+### Remove Unused Packages (Optional)
+
+When installing Gnome from the **archinstall** profile, a lot of unused packages will be installed, so to remove clutter you can remove these packages.
+
+```shell
+yay -R gnome-console epiphany vim
+```
+
+```shell
+sudo pacman -Rsn $(pacman -Qdtq)
+```
+
+### Install NVIDIA Support (Optional)
+
+Do this ONLY if you need Nvidia support (do this first)
+
+```shell
+yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
+```
+
+/etc/mkinitcpio.conf
+
+```shell
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+```
+
+Generate a new initramfs image
+
+```shell
+sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
+```
+
+Create NVIDIA Configuration
+
+```shell
+echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
+```
+
+Verify
+
+```shell
+cat /etc/modprobe.d/nvidia.conf
+```
+
+Should return:
+
+```shell
+options nvidia-drm modeset=1
 ```
 
 ### Install ASDF, NodeJS, Yarn and Rust
@@ -69,86 +149,6 @@ Set the stable version of rust globally:
 
 ```shell
 asdf global nodejs stable
-```
-
-### Install Base Packages
-
-For the system to work correctly it's important to have all the following packages installed:
-
-```shell
-yay -Sy neovim ripgrep neofetch zsh starship xdg-ninja stow file-roller obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
-```
-
-### Install Oh-My-Zsh!
-
-To proceed run the following command
-
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-Next, install the **zsh autosuggestions** plugin:
-
-```shell
-git clone https://github.com/zsh-users/zsh-autosuggestions \
-  $ZSH_CUSTOM/plugins/zsh-autosuggestions
-```
-
-Then, install the **zsh vi mode** plugin:
-
-```shell
-git clone https://github.com/jeffreytse/zsh-vi-mode \
-  $ZSH_CUSTOM/plugins/zsh-vi-mode
-```
-
-### Remove Unused Packages (Optional)
-
-When installing Hyprland from the **archinstall** profile, a lot of unused packages will be installed, so to remove clutter you can remove these packages.
-
-```shell
-yay -R gnome-console epiphany vim
-```
-
-```shell
-sudo pacman -Rsn $(pacman -Qdtq)
-```
-
-### Install NVIDIA Support (Optional)
-
-Do this ONLY if you need Nvidia support (do this first)
-
-```shell
-yay -S linux-headers nvidia-dkms qt5-wayland qt5ct libva libva-nvidia-driver-git
-```
-
-/etc/mkinitcpio.conf
-
-```shell
-MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
-```
-
-generate a new initramfs image
-
-```shell
-sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
-```
-
-Create NVIDIA Configuration
-
-```shell
-echo "options nvidia-drm modeset=1" | sudo tee /etc/modprobe.d/nvidia.conf
-```
-
-verify
-
-```shell
-cat /etc/modprobe.d/nvidia.conf
-```
-
-shoud return:
-
-```shell
-options nvidia-drm modeset=1
 ```
 
 ### Install Gaming Packages (Optional)
@@ -231,9 +231,31 @@ First you need to download the dotifles from the git repository:
 git clone git@github.com:alancunha26/Dotfiles.git ~/Dotfiles
 ```
 
-Then you have to run the following command to _symlink_ these dotfiles into your _/home_ directory.
+Then you have to run the following command from the `~/Dotfiles` directory to _symlink_ these dotfiles into your _/home_ directory.
 
 ```shell
-cd ~/Dotfiles && stow .
+stow .
+```
+
+Now reset your desktop settings to the factory defaults with command:
+
+```shell
+dconf reset -f /
+```
+
+To restore the System settings, simply do:
+
+```shell
+dconf load / < kittyos-dconf
+```
+
+## Fixes
+
+Some stuff may not work when fresh installing, below are some common fixes for common problems.
+
+### Fixing "Camera not found" on Gnome 46
+
+```shell
+systemctl --user restart pipewire
 ```
 
