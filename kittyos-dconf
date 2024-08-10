@@ -1,6 +1,6 @@
 [ca/desrt/dconf-editor]
-saved-pathbar-path='/org/gnome/desktop/wm/keybindings/switch-to-workspace-5'
-saved-view='/org/gnome/desktop/wm/keybindings/switch-to-workspace-5'
+saved-pathbar-path='/org/gnome/shell/keybindings/switch-to-application-9'
+saved-view='/org/gnome/shell/keybindings/'
 window-height=648
 window-is-maximized=false
 window-width=701
@@ -15,7 +15,7 @@ custom-shell-command='zsh'
 delay-before-showing-floating-controls=uint32 100
 easy-copy-paste=false
 fill-tabs=false
-floating-controls=true
+floating-controls=false
 floating-controls-hover-area=uint32 30
 font='JetBrainsMonoNL Nerd Font 12'
 headerbar-drag-area=false
@@ -60,27 +60,28 @@ window-width=800
 
 [org/gnome/Totem]
 active-plugins=['vimeo', 'rotation', 'autoload-subtitles', 'movie-properties', 'apple-trailers', 'mpris', 'save-file', 'screensaver', 'variable-rate', 'open-directory', 'screenshot', 'recent', 'skipto']
+open-uri='file:///home/alancunha26/Downloads'
 subtitle-encoding='UTF-8'
 
 [org/gnome/calendar]
-active-view='month'
+active-view='week'
 window-maximized=true
 window-size=(768, 600)
 
 [org/gnome/control-center]
-last-panel='applications'
+last-panel='keyboard'
 window-state=(1896, 1024, true)
 
 [org/gnome/desktop/app-folders]
 folder-children=['Utilities', 'YaST', 'Pardus', '9496dc74-ed14-488e-89af-bf428b7d6901', 'adc60503-2c30-4b19-bd0f-bd3670d9b874', '87acbf72-f4f9-4482-bb62-777882f9c7e8']
 
 [org/gnome/desktop/app-folders/folders/87acbf72-f4f9-4482-bb62-777882f9c7e8]
-apps=['org.gnome.TextEditor.desktop', 'nvim.desktop', 'com.obsproject.Studio.desktop']
+apps=['org.gnome.TextEditor.desktop', 'nvim.desktop', 'com.obsproject.Studio.desktop', 'org.corectrl.CoreCtrl.desktop']
 name='Tools'
 translate=false
 
 [org/gnome/desktop/app-folders/folders/9496dc74-ed14-488e-89af-bf428b7d6901]
-apps=['steam.desktop', 'net.lutris.Lutris.desktop', "Baldur's Gate 3.desktop", 'Proton Experimental.desktop', 'Steam Linux Runtime 3.0 (sniper).desktop']
+apps=['steam.desktop', 'net.lutris.Lutris.desktop', "Baldur's Gate 3.desktop", 'Proton Experimental.desktop', 'Steam Linux Runtime 3.0 (sniper).desktop', 'TaleSpire.desktop', 'Dragon Age Origins - Ultimate Edition.desktop', 'ELDEN RING.desktop']
 name='Games'
 
 [org/gnome/desktop/app-folders/folders/Pardus]
@@ -111,6 +112,7 @@ picture-uri='file:///home/alancunha26/.config/background'
 picture-uri-dark='file:///home/alancunha26/.config/background'
 
 [org/gnome/desktop/input-sources]
+show-all-sources=false
 sources=[('xkb', 'br')]
 xkb-options=['terminate:ctrl_alt_bksp']
 
@@ -127,7 +129,7 @@ autorun-x-content-open-folder=@as []
 autorun-x-content-start-app=['x-content/unix-software', 'x-content/ostree-repository']
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-calendar', 'org-gnome-console', 'firefox', 'gnome-power-panel', 'org-gnome-texteditor', 'dev-zed-zed', 'com-raggesilver-blackbox', 'org-gnome-settings']
+application-children=['org-gnome-calendar', 'org-gnome-console', 'firefox', 'gnome-power-panel', 'org-gnome-texteditor', 'dev-zed-zed', 'com-raggesilver-blackbox', 'org-gnome-settings', 'org-gnome-nautilus', 'steam', 'org-gnome-evolution-alarm-notify', 'org-gnome-tweaks']
 
 [org/gnome/desktop/notifications/application/com-raggesilver-blackbox]
 application-id='com.raggesilver.BlackBox.desktop'
@@ -147,11 +149,23 @@ application-id='org.gnome.Calendar.desktop'
 [org/gnome/desktop/notifications/application/org-gnome-console]
 application-id='org.gnome.Console.desktop'
 
+[org/gnome/desktop/notifications/application/org-gnome-evolution-alarm-notify]
+application-id='org.gnome.Evolution-alarm-notify.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-nautilus]
+application-id='org.gnome.Nautilus.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-settings]
 application-id='org.gnome.Settings.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-texteditor]
 application-id='org.gnome.TextEditor.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-tweaks]
+application-id='org.gnome.tweaks.desktop'
+
+[org/gnome/desktop/notifications/application/steam]
+application-id='steam.desktop'
 
 [org/gnome/desktop/peripherals/touchpad]
 two-finger-scrolling-enabled=true
@@ -219,6 +233,12 @@ window-ratio=(2.5694444444444446, 1.2592592592592593)
 [org/gnome/evolution-data-server]
 migrated=true
 
+[org/gnome/evolution-data-server/calendar]
+reminders-past=["61ec426a65b40711eaeab4808333b794b40c4090\n56d5db01d3fc1c6e634945e87515e07457a525ad\t20240809T171500\n1723233900\n1723234500\n1723237200\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240809T171500\r\nDTEND;TZID=America/Sao_Paulo:20240809T180000\r\nDTSTAMP:20240809T184630Z\r\nORGANIZER;CN=adriele@simplesdental.com:mailto:adriele@simplesdental.com\r\nUID:6ab2n773eb4ics1qvkgubjq02e_R20240809T201500@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=adriele@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n adriele@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=Todo Mundo;X-NUM-GUESTS=0:mailto:todomundo@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alan.cunha@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alan.cunha@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=TENTATIVE;\r\n CN=Samuel Suhwan Oh;X-NUM-GUESTS=0:mailto:samuel.oh@dentalcremer.com.br\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/cnw-eqdt-ttk\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240809T171500\r\nCREATED:20240716T221056Z\r\nDESCRIPTION:<b>Reunião destinada ao alinhamento sobre OKR dos times:\r\n </b><br><ul><li>Responsável pela condução: \r\n Ramon</li><li><p>Comunicados importantes serão passados nos primeiros \r\n minutos da reunião\\;</p></li><li><p>Apresentar o OKR com objetividade e \r\n clareza\\, para que os demais times possam entender como ajudar e/ou serem \r\n ajudados a atingir o objetivo\\;</p></li><li><p>Cada time é responsável \r\n pela atualização/Check in dos seus OKr's.<br><br><i>* Reunião sujeita \r\n a alteração de data e horário de forma antecipada\\, conforme \r\n necessidade.</i></p></li></ul>\\n\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-\\nEntrar com o Google Meet:\r\n  https://meet.google.com/cnw-eqdt-ttk\\nOu disque: (BR) +55 31 3958-9225 \r\n PIN: 609196537#\\nMais números de telefone: https:\r\n //tel.meet/cnw-eqdt-ttk?pin=1471442390498&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240809T184630Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Reunião semanal- Check In OKR\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858912390\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:56d5db01d3fc1c6e634945e87515e07457a525ad\r\nEND:VALARM\r\nEND:VEVENT\r\n", '61ec426a65b40711eaeab4808333b794b40c4090\n1c5167f6ec7aedca1d3afad1a6733955b1f77137\t20240809T152000\n1723227000\n1723227600\n1723231200\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240809T152000\r\nDTEND;TZID=America/Sao_Paulo:20240809T162000\r\nDTSTAMP:20240809T002323Z\r\nORGANIZER;CN=luis.fortunato@simplesdental.com:mailto:\r\n luis.fortunato@simplesdental.com\r\nUID:r393688ev9tlra48h1q1tfha3i_R20240614T182000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=danilo@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n danilo@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alan.cunha@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alan.cunha@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=rayane@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n rayane@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=patricia@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n patricia@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=alessandra.saraiva@simplesdental.com;X-NUM-GUESTS=0;\r\n X-RESPONSE-COMMENT="Recusado porque estou de f&eacute\\;rias.":mailto:\r\n alessandra.saraiva@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=morgana@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n morgana@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=luis.fortunato@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n luis.fortunato@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=junior@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n junior@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=jaqueline@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n jaqueline@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=samuel.lima@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n samuel.lima@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=felipe.assis@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n felipe.assis@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=zodraki@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n zodraki@simplesdental.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/ozj-fgjt-vdu\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240809T152000\r\nCREATED:20230915T185908Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nEntrar com o Google Meet: https:\r\n //meet.google.com/ozj-fgjt-vdu\\nOu disque: (BR) +55 31 3958-9756 PIN: \r\n 437010629#\\nMais números de telefone: https:\r\n //tel.meet/ozj-fgjt-vdu?pin=3473635066183&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240809T002323Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:2\r\nSTATUS:CONFIRMED\r\nSUMMARY:[Retenção] Integração do time\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858846203\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:1c5167f6ec7aedca1d3afad1a6733955b1f77137\r\nEND:VALARM\r\nEND:VEVENT\r\n', '61ec426a65b40711eaeab4808333b794b40c4090\n50a66f70bd12be301d961abae8e4fe17bea61859\t20240809T150000\n1723225800\n1723226400\n1723227600\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240809T150000\r\nDTEND;TZID=America/Sao_Paulo:20240809T152000\r\nDTSTAMP:20240809T002327Z\r\nORGANIZER;CN=luis.fortunato@simplesdental.com:mailto:\r\n luis.fortunato@simplesdental.com\r\nUID:55nmpstm8kec0er6p3fe4l1o2g_R20240607T180000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=samuel.lima@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n samuel.lima@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=danilo@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n danilo@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=rayane@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n rayane@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alan.cunha@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alan.cunha@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=patricia@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n patricia@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=ally@simplesdental.com;X-NUM-GUESTS=0;X-RESPONSE-COMMENT="Recusado \r\n porque estou de f&eacute\\;rias.":mailto:ally@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=felipe.assis@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n felipe.assis@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=morgana@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n morgana@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=jaqueline@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n jaqueline@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=luis.fortunato@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n luis.fortunato@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=zodraki@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n zodraki@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=junior@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n junior@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=OPT-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=pavanatti@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n pavanatti@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=beatriz@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n beatriz@simplesdental.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/zvt-cfew-jvq\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240809T150000\r\nCREATED:20240205T184335Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nEntrar com o Google Meet: https:\r\n //meet.google.com/zvt-cfew-jvq\\nOu disque: (BR) +55 51 4560-7572 PIN: \r\n 518622275#\\nMais números de telefone: https:\r\n //tel.meet/zvt-cfew-jvq?pin=5361513880654&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240809T002327Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:1\r\nSTATUS:CONFIRMED\r\nSUMMARY:Daily Squad Retenção\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858846207\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:50a66f70bd12be301d961abae8e4fe17bea61859\r\nEND:VALARM\r\nEND:VEVENT\r\n', '61ec426a65b40711eaeab4808333b794b40c4090\n6f8443d0e3de3e42a0162d6144c1fff686b4d3c5\t20240808T150000\n1723139400\n1723140000\n1723141800\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240808T150000\r\nDTEND;TZID=America/Sao_Paulo:20240808T153000\r\nDTSTAMP:20240808T125123Z\r\nORGANIZER;CN=junior@simplesdental.com:mailto:junior@simplesdental.com\r\nUID:1dqb62fbg7vjsl6j8625ia8pfd@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=filipe.bessa@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n filipe.bessa@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=veloso@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n veloso@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alan.cunha@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alan.cunha@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=willian@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n willian@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=junior@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n junior@simplesdental.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/ipx-xcpx-tka\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240808T150000\r\nCREATED:20240807T131048Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nEntrar com o Google Meet: https:\r\n //meet.google.com/ipx-xcpx-tka\\nOu disque: (BR) +55 11 4935-2569 PIN: \r\n 426486679#\\nMais números de telefone: https:\r\n //tel.meet/ipx-xcpx-tka?pin=9537166111673&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240808T125123Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:0\r\nSTATUS:CONFIRMED\r\nSUMMARY:Weekly Front\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858804683\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:6f8443d0e3de3e42a0162d6144c1fff686b4d3c5\r\nEND:VALARM\r\nEND:VEVENT\r\n', '2d6b04adc17e539b7ff591609dc59429c98f4bd6\nbaded18d87b3072be2cfab03d2b21e2548a49573\t20240808T100000\n1723120200\n1723122000\n1723125600\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240808T100000\r\nDTEND;TZID=America/Sao_Paulo:20240808T110000\r\nDTSTAMP:20240808T165109Z\r\nORGANIZER;CN=Family:mailto:\r\n family09214740744289964876@group.calendar.google.com\r\nUID:hivmeg9fprdrbgsrjokb77pl9o@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=samanthaschmoeller@gmail.com;X-NUM-GUESTS=0:mailto:\r\n samanthaschmoeller@gmail.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alanalegredacunha@gmail.com;X-NUM-GUESTS=0:mailto:\r\n alanalegredacunha@gmail.com\r\nCREATED:20240807T184714Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for DESCRIPTION \r\n property. Removing entire property:\r\nLAST-MODIFIED:20240808T165109Z\r\nLOCATION:ALVET Hospital Veterinário\\, Av. Gabriel Zanette\\, 515 - \r\n Próspera\\, Criciúma - SC\\, 88815-075\\, Brasil\r\nSEQUENCE:14\r\nSTATUS:CONFIRMED\r\nSUMMARY:Consulta Tom\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858819069\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:baded18d87b3072be2cfab03d2b21e2548a49573\r\nEND:VALARM\r\nEND:VEVENT\r\n', '61ec426a65b40711eaeab4808333b794b40c4090\nb3d41572bc7077fc4bb1f3000d894857a2d51f3e\t20240808T140000\n1723135800\n1723136400\n1723137600\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240808T140000\r\nDTEND;TZID=America/Sao_Paulo:20240808T142000\r\nDTSTAMP:20240806T170024Z\r\nORGANIZER;CN=luis.fortunato@simplesdental.com:mailto:\r\n luis.fortunato@simplesdental.com\r\nUID:l2ohhgt1d2n4mum18apa742ehi_R20240806T170000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=danilo@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n danilo@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=rayane@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n rayane@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alan.cunha@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alan.cunha@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=patricia@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n patricia@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=morgana@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n morgana@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=junior@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n junior@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=luis.fortunato@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n luis.fortunato@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=alessandra.saraiva@simplesdental.com;X-NUM-GUESTS=0;\r\n X-RESPONSE-COMMENT="Recusado porque estou de f&eacute\\;rias.":mailto:\r\n alessandra.saraiva@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=jaqueline@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n jaqueline@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=samuel.lima@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n samuel.lima@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=felipe.assis@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n felipe.assis@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=zodraki@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n zodraki@simplesdental.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/eza-asvn-nxe\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240808T140000\r\nCREATED:20230703T124650Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nEntrar com o Google Meet: https:\r\n //meet.google.com/eza-asvn-nxe\\nOu disque: (BR) +55 11 4949-4185 PIN: \r\n 539522474#\\nMais números de telefone: https:\r\n //tel.meet/eza-asvn-nxe?pin=5720088156355&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240806T170024Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:1\r\nSTATUS:CONFIRMED\r\nSUMMARY:Daily Squad Retenção\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858646824\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:b3d41572bc7077fc4bb1f3000d894857a2d51f3e\r\nEND:VALARM\r\nEND:VEVENT\r\n', "61ec426a65b40711eaeab4808333b794b40c4090\n9afc61828aee8a48efcbe527143f395a180cd336\t20240808T100000\n1723121400\n1723122000\n1723123800\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240808T100000\r\nDTEND;TZID=America/Sao_Paulo:20240808T103000\r\nDTSTAMP:20240808T125137Z\r\nORGANIZER;CN=alan.cunha@simplesdental.com:mailto:\r\n alan.cunha@simplesdental.com\r\nUID:kua4bbbec888qpom6penna8phq_R20240808T130000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=veloso@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n veloso@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=willian@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n willian@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=junior@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n junior@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=DECLINED;\r\n CN=filipe.bessa@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n filipe.bessa@simplesdental.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/apy-fdwn-srt\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240808T100000\r\nCREATED:20230728T124632Z\r\nDESCRIPTION:Scheduled with <a href=\"https://morgen.so/cal\" \r\n target='_blank' rel=\"noopener noreferrer nofollow\">Morgen</a>\\n\\n-::~:~::\r\n ~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::\r\n ~:~::-\\nEntrar com o Google Meet: https:\r\n //meet.google.com/apy-fdwn-srt\\nOu disque: (BR) +55 21 4560-7642 PIN: \r\n 739106742#\\nMais números de telefone: https:\r\n //tel.meet/apy-fdwn-srt?pin=4244407006356&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240808T125137Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:8\r\nSTATUS:CONFIRMED\r\nSUMMARY:Talk Devs Front\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858804697\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:9afc61828aee8a48efcbe527143f395a180cd336\r\nEND:VALARM\r\nEND:VEVENT\r\n", 'cd6c90262f4ab0f9f3d7ce4de861d48c6ea15c79\n5c96d3248dfde23e8f9cfaee517f64096a05e02b\t20240807T160000\n1723055400\n1723057200\n1723060800\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240807T160000\r\nDTEND;TZID=America/Sao_Paulo:20240807T170000\r\nDTSTAMP:20240807T161756Z\r\nORGANIZER;CN=Family:mailto:\r\n family09214740744289964876@group.calendar.google.com\r\nUID:hivmeg9fprdrbgsrjokb77pl9o@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=samanthaschmoeller@gmail.com;X-NUM-GUESTS=0:mailto:\r\n samanthaschmoeller@gmail.com\r\nCREATED:20240724T164228Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for DESCRIPTION \r\n property. Removing entire property:\r\nLAST-MODIFIED:20240807T161756Z\r\nLOCATION:ALVET Hospital Veterinário\\, Av. Gabriel Zanette\\, 515 - \r\n Próspera\\, Criciúma - SC\\, 88815-075\\, Brasil\r\nSEQUENCE:8\r\nSTATUS:CONFIRMED\r\nSUMMARY:Consulta Tom\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858730676\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT30M\r\nX-EVOLUTION-ALARM-UID:5c96d3248dfde23e8f9cfaee517f64096a05e02b\r\nEND:VALARM\r\nEND:VEVENT\r\n', '61ec426a65b40711eaeab4808333b794b40c4090\n15dcdc8cdd73e9f83ed8a7ae8f76d64b20f693ef\t20240807T143000\n1723051200\n1723051800\n1723055400\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240807T143000\r\nDTEND;TZID=America/Sao_Paulo:20240807T153000\r\nDTSTAMP:20240807T171835Z\r\nUID:22242628545cb97b444a91248705cd2072a0f27d\r\nCREATED:20240807T170717Z\r\nDESCRIPTION:Abrir conta salário no Bradesco\r\nLAST-MODIFIED:20240807T171835Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:18\r\nSTATUS:CONFIRMED\r\nSUMMARY:Bradesco\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858734315\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:15dcdc8cdd73e9f83ed8a7ae8f76d64b20f693ef\r\nEND:VALARM\r\nEND:VEVENT\r\n', '61ec426a65b40711eaeab4808333b794b40c4090\n68a1eebc45dc38cc05325909346fa32d630d9e97\t20240807T140000\n1723049400\n1723050000\n1723051200\nBEGIN:VEVENT\r\nDTSTART;TZID=America/Sao_Paulo:20240807T140000\r\nDTEND;TZID=America/Sao_Paulo:20240807T142000\r\nRRULE:FREQ=WEEKLY;BYDAY=TU,WE,TH;WKST=SU\r\nDTSTAMP:20240806T170024Z\r\nORGANIZER;CN=luis.fortunato@simplesdental.com:mailto:\r\n luis.fortunato@simplesdental.com\r\nUID:l2ohhgt1d2n4mum18apa742ehi_R20240806T170000@google.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=danilo@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n danilo@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=rayane@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n rayane@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=alan.cunha@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alan.cunha@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=patricia@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n patricia@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=morgana@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n morgana@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;\r\n CN=junior@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n junior@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=luis.fortunato@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n luis.fortunato@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=alessandra.saraiva@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n alessandra.saraiva@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=jaqueline@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n jaqueline@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=samuel.lima@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n samuel.lima@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=felipe.assis@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n felipe.assis@simplesdental.com\r\nATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;\r\n CN=zodraki@simplesdental.com;X-NUM-GUESTS=0:mailto:\r\n zodraki@simplesdental.com\r\nX-GOOGLE-CONFERENCE:https://meet.google.com/eza-asvn-nxe\r\nCREATED:20230703T124650Z\r\nDESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~:~::~:~::-\\nEntrar com o Google Meet: https:\r\n //meet.google.com/eza-asvn-nxe\\nOu disque: (BR) +55 11 4949-4185 PIN: \r\n 539522474#\\nMais números de telefone: https:\r\n //tel.meet/eza-asvn-nxe?pin=5720088156355&hs=7\\n\\nSaiba mais sobre o Meet \r\n em: https://support.google.com/a/users/answer/9282720\\n\\nNão edite esta \r\n seção.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\r\n ~:~:~:~:~:~:~:~::~:~::-\r\nLAST-MODIFIED:20240806T170024Z\r\nX-LIC-ERROR;X-LIC-ERRORTYPE=VALUE-PARSE-ERROR:No value for LOCATION \r\n property. Removing entire property:\r\nSEQUENCE:1\r\nSTATUS:CONFIRMED\r\nSUMMARY:Daily Squad Retenção\r\nTRANSP:OPAQUE\r\nX-EVOLUTION-CALDAV-ETAG:63858646824\r\nRECURRENCE-ID;TZID=America/Sao_Paulo:20240807T140000\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:This is an event reminder\r\nTRIGGER:-PT10M\r\nX-EVOLUTION-ALARM-UID:68a1eebc45dc38cc05325909346fa32d630d9e97\r\nEND:VALARM\r\nEND:VEVENT\r\n']
+
+[org/gnome/evolution]
+default-calendar='2d6b04adc17e539b7ff591609dc59429c98f4bd6'
+
 [org/gnome/file-roller/listing]
 list-mode='as-folder'
 name-column-width=64
@@ -254,12 +274,13 @@ toggle-tiled-left=@as []
 toggle-tiled-right=@as []
 
 [org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
+default-folder-viewer='list-view'
 migrated-gtk-settings=true
 search-filter-time-type='last_modified'
+show-create-link=true
 
 [org/gnome/nautilus/window-state]
-initial-size=(1311, 798)
+initial-size=(1311, 797)
 
 [org/gnome/settings-daemon/plugins/color]
 night-light-enabled=false
@@ -281,7 +302,7 @@ command='nautilus'
 name='Open File Explorer'
 
 [org/gnome/shell]
-app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.Totem.desktop': <{'position': <4>}>, 'org.gnome.Calculator.desktop': <{'position': <5>}>, 'org.gnome.Snapshot.desktop': <{'position': <6>}>, 'simple-scan.desktop': <{'position': <7>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <8>}>, 'org.gnome.Extensions.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'yelp.desktop': <{'position': <11>}>, 'org.gnome.Tour.desktop': <{'position': <12>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <13>}>, '9496dc74-ed14-488e-89af-bf428b7d6901': <{'position': <14>}>, 'adc60503-2c30-4b19-bd0f-bd3670d9b874': <{'position': <15>}>, '87acbf72-f4f9-4482-bb62-777882f9c7e8': <{'position': <16>}>, 'org.gnome.Software.desktop': <{'position': <17>}>}]
+app-picker-layout=[{'org.gnome.Contacts.desktop': <{'position': <0>}>, 'org.gnome.Weather.desktop': <{'position': <1>}>, 'org.gnome.clocks.desktop': <{'position': <2>}>, 'org.gnome.Maps.desktop': <{'position': <3>}>, 'org.gnome.Totem.desktop': <{'position': <4>}>, 'org.gnome.Calculator.desktop': <{'position': <5>}>, 'org.gnome.Snapshot.desktop': <{'position': <6>}>, 'simple-scan.desktop': <{'position': <7>}>, 'org.gnome.SystemMonitor.desktop': <{'position': <8>}>, 'org.gnome.Extensions.desktop': <{'position': <9>}>, 'Utilities': <{'position': <10>}>, 'yelp.desktop': <{'position': <11>}>, 'org.gnome.Tour.desktop': <{'position': <12>}>, 'ca.desrt.dconf-editor.desktop': <{'position': <13>}>, '9496dc74-ed14-488e-89af-bf428b7d6901': <{'position': <14>}>, 'adc60503-2c30-4b19-bd0f-bd3670d9b874': <{'position': <15>}>, '87acbf72-f4f9-4482-bb62-777882f9c7e8': <{'position': <16>}>, 'org.gnome.Software.desktop': <{'position': <17>}>, 'talespire-scheme-handler.desktop': <{'position': <18>}>}]
 disabled-extensions=['auto-move-windows@gnome-shell-extensions.gcampax.github.com', 'system-monitor@gnome-shell-extensions.gcampax.github.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'window-list@gnome-shell-extensions.gcampax.github.com', 'windowsNavigator@gnome-shell-extensions.gcampax.github.com', 'drive-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'native-window-placement@gnome-shell-extensions.gcampax.github.com', 'light-style@gnome-shell-extensions.gcampax.github.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'useless-gaps@pimsnel.com']
 enabled-extensions=['caffeine@patapon.info', 'tilingshell@ferrarodomenico.com', 'blur-my-shell@aunetx', 'just-perfection-desktop@just-perfection']
 favorite-apps=['org.gnome.Calendar.desktop', 'org.gnome.Music.desktop', 'org.gnome.Nautilus.desktop', 'com.raggesilver.BlackBox.desktop', 'firefox.desktop', 'obsidian.desktop', 'org.gnome.Settings.desktop', 'org.gnome.tweaks.desktop']
@@ -321,7 +342,8 @@ brightness=0.59999999999999998
 sigma=30
 
 [org/gnome/shell/extensions/caffeine]
-indicator-position-max=1
+indicator-position-max=2
+toggle-state=false
 
 [org/gnome/shell/extensions/just-perfection]
 accessibility-menu=true
@@ -351,7 +373,7 @@ workspaces-in-app-grid=true
 [org/gnome/shell/extensions/tilingshell]
 enable-blur-snap-assistant=false
 enable-span-multiple-tiles=true
-last-version-name-installed='11'
+last-version-name-installed='12.2'
 layouts-json='[{"id":"Layout 1","tiles":[{"x":0,"y":0,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0,"y":0.5,"width":0.22,"height":0.5,"groups":[1,2]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[2,3]},{"x":0.78,"y":0,"width":0.22,"height":0.5,"groups":[3,4]},{"x":0.78,"y":0.5,"width":0.22,"height":0.5,"groups":[3,4]}]},{"id":"Layout 2","tiles":[{"x":0,"y":0,"width":0.22,"height":1,"groups":[1]},{"x":0.22,"y":0,"width":0.56,"height":1,"groups":[1,2]},{"x":0.78,"y":0,"width":0.22,"height":1,"groups":[2]}]},{"id":"Layout 3","tiles":[{"x":0,"y":0,"width":0.33,"height":1,"groups":[1]},{"x":0.33,"y":0,"width":0.67,"height":1,"groups":[1]}]},{"id":"Layout 4","tiles":[{"x":0,"y":0,"width":0.67,"height":1,"groups":[1]},{"x":0.67,"y":0,"width":0.33,"height":1,"groups":[1]}]},{"id":"56004275","tiles":[{"x":0,"y":0,"width":1,"height":1,"groups":[]}]}]'
 outer-gaps=uint32 8
 overridden-settings="{\"org.gnome.mutter.keybindings\":{\"toggle-tiled-right\":\"['<Super>Right']\",\"toggle-tiled-left\":\"['<Super>Left']\"},\"org.gnome.desktop.wm.keybindings\":{\"maximize\":\"['<Super>f']\",\"unmaximize\":\"['<Super>v']\"},\"org.gnome.mutter\":{\"edge-tiling\":\"true\"}}"
@@ -368,6 +390,11 @@ switch-to-application-1=@as []
 switch-to-application-2=@as []
 switch-to-application-3=@as []
 switch-to-application-4=@as []
+switch-to-application-5=@as []
+switch-to-application-6=@as []
+switch-to-application-7=@as []
+switch-to-application-8=@as []
+switch-to-application-9=@as []
 toggle-message-tray=['<Super>n']
 toggle-quick-settings=@as []
 
@@ -375,9 +402,9 @@ toggle-quick-settings=@as []
 locations=@av []
 
 [org/gnome/software]
-check-timestamp=int64 1720865695
+check-timestamp=int64 1723291538
 first-run=false
-flatpak-purge-timestamp=int64 1720831112
+flatpak-purge-timestamp=int64 1723221887
 
 [org/gnome/tweaks]
 show-extensions-notice=false
@@ -385,7 +412,7 @@ show-extensions-notice=false
 [org/gtk/gtk4/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=true
+show-hidden=false
 sidebar-width=140
 sort-column='name'
 sort-directories-first=false
@@ -397,7 +424,7 @@ window-size=(903, 612)
 [org/gtk/settings/file-chooser]
 date-format='regular'
 location-mode='path-bar'
-show-hidden=false
+show-hidden=true
 show-size-column=true
 show-type-column=true
 sidebar-width=157
