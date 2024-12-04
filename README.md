@@ -1,4 +1,3 @@
-
 My dotfiles will install a fully-featured tiling window manager environment on any Arch Linux based system, with custom theming, gaming on linux, completely keyboard-centric functionality (vim-motions) and a lot more.
 
 -> [How to dual boot arch linux and Windows 10/11 using archinstall script (UPDATED)!!!!!!](https://www.youtube.com/watch?v=Np6k3Pilz-I)
@@ -20,7 +19,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 For the system to work correctly it's important to have all the following packages installed:
 
 ```shell
-yay -Sy neovim ripgrep neofetch zsh starship xdg-ninja stow file-roller cliphist wl-clipboard obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono gnome-shell-extension-caffeine gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection-desktop gnome-shell-extension-tilingshell gnome-shell-extensions-useless-gaps gst-libav qt5-wayland qt6-wayland
+yay -Sy neovim ripgrep neofetch zsh starship xdg-ninja stow file-roller cliphist wl-clipboard obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono gnome-shell-extension-caffeine gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection-desktop gnome-shell-extension-tilingshell gnome-shell-extensions-useless-gaps gst-libav qt5-wayland qt6-wayland kitty
 ```
 
 ### Install Oh-My-Zsh!
@@ -258,4 +257,3 @@ Some stuff may not work when fresh installing, below are some common fixes for c
 ```shell
 systemctl --user restart pipewire
 ```
-
