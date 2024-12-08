@@ -1,7 +1,22 @@
+-- https://github.com/MeanderingProgrammer/render-markdown.nvim/issues/114
 return {
   'MeanderingProgrammer/render-markdown.nvim',
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-  -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-  dependencies = { 'nvim-treesitter/nvim-treesitter', { 'nvim-tree/nvim-web-devicons', enbled = vim.g.have_nerd_font } }, -- if you prefer nvim-web-devicons
-  opts = {},
+  dependencies = {
+    'nvim-treesitter/nvim-treesitter',
+    { 'nvim-tree/nvim-web-devicons', enbled = vim.g.have_nerd_font },
+  },
+  opts = {
+    sign = {
+      enabled = false,
+    },
+    link = {
+      enabled = false,
+    },
+    quote = {
+      repeat_linebreak = true,
+    },
+    win_options = {
+      conceallevel = { rendered = 0 },
+    },
+  },
 }

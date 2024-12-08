@@ -23,7 +23,9 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
--- Enable break indent
+-- Enable soft wrap
+vim.opt.wrap = true
+vim.o.linebreak = true
 vim.opt.breakindent = true
 
 -- Save undo history
@@ -68,7 +70,9 @@ vim.opt.scrolloff = 10
 vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = { '*.md' },
   callback = function()
+    vim.opt.wrap = false
     vim.opt.textwidth = 80
+    vim.opt.conceallevel = 0
   end,
 })
 
