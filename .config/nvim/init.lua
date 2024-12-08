@@ -95,8 +95,8 @@ vim.g.have_nerd_font = true
 
 -- Set my global directory of notes
 -- TODO: make this more dynamic, maybe it can check for the cwd?
-vim.g.notes_dir = '~/Documents/Alan.md'
-vim.g.notes_assets_dir = '00 Meta/Assets'
+vim.g.notes_dir = '~/03 Resources/Notes'
+vim.g.notes_assets_dir = '00-assets'
 
 -- [[ Setting options ]]
 require 'options'

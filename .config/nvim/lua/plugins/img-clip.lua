@@ -1,7 +1,6 @@
 return {
   'HakonHarnes/img-clip.nvim',
   event = 'VeryLazy',
-  enabled = false, -- disabled due to obsidian.nvim support to paste images
   opts = {
     -- add options here
     -- or leave it empty to use the default settings
