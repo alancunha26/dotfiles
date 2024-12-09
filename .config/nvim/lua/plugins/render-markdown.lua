@@ -15,6 +15,9 @@ return {
     quote = {
       repeat_linebreak = true,
     },
+    checkbox = {
+      enabled = false,
+    },
     win_options = {
       conceallevel = { rendered = 0 },
     },

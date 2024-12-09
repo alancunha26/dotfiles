@@ -77,7 +77,12 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   pattern = { '*.md' },
   callback = function()
     vim.opt.wrap = false
+    vim.opt.textwidth = 80
     vim.opt.conceallevel = 0
+    vim.opt.tabstop = 2
+    vim.opt.shiftwidth = 2
+    vim.bo.softtabstop = 2
+    vim.opt.expandtab = true
   end,
 })
 
