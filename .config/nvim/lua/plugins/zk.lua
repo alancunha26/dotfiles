@@ -1,5 +1,10 @@
 return {
   'zk-org/zk-nvim',
+  -- enabled = false,
+  -- For some reason the condition is not working correctly
+  cond = function()
+    return vim.fn.isdirectory(vim.fn.getcwd() .. '/.zk') == 1
+  end,
   config = function()
     require('zk').setup {
       picker = 'telescope',
@@ -17,20 +22,20 @@ return {
       },
     }
 
-    -- Load the vault config
-    local data = vim.fn.readfile(vim.fn.getcwd() .. '/.zk/vault.json')
-    local config = vim.fn.json_decode(data)
-
-    local assets_dir = vim.fn.expand(config.assets_dir or 'assets')
-    local zettels_dir = vim.fn.expand(config.notes_dir or 'notes')
-    local daily_dir = vim.fn.expand(config.daily_dir or 'daily')
-    local daily_id_format = config.daily_id_format or '%Y-%m-%d'
-    local daily_title_format = config.daily_title_format or '%B %-d, %Y'
-
-    local commands = require 'zk.commands'
+    local config = require 'utils.zk-vault-config'()
     local builtin = require 'telescope.builtin'
     local actions = require 'telescope.actions'
     local action_state = require 'telescope.actions.state'
+    local commands = require 'zk.commands'
+
+    if not config then
+      return
+    end
+
+    local zettels_dir = vim.fn.expand(config.notes_dir)
+    local daily_dir = vim.fn.expand(config.daily_dir)
+    local daily_id_format = config.daily_id_format
+    local daily_title_format = config.daily_title_format
 
     local zkNewNoteFromTemplate = function()
       builtin.find_files {
@@ -70,13 +75,13 @@ return {
     vim.keymap.set('n', '<leader>zd', zkOpenDailyNote, { desc = 'Open [D]aily Note' })
 
     -- Navigation
-    vim.keymap.set('n', '<leader>zf', '<Cmd>ZkNotes<CR>', { desc = 'Search [F]iles' })
-    vim.keymap.set('n', '<leader>zb', '<Cmd>ZkBacklinks<CR>', { desc = 'Search [B]acklinks' })
-    vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { desc = 'Search [L]inks' })
-    vim.keymap.set('n', '<leader>z#', '<Cmd>ZkTags<CR>', { desc = 'Search [#]Tags' })
+    vim.keymap.set('n', '<leader>zf', '<Cmd>ZkNotes<CR>', { desc = 'Find [F]iles' })
+    vim.keymap.set('n', '<leader>zb', '<Cmd>ZkBacklinks<CR>', { desc = 'Find [B]acklinks' })
+    vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { desc = 'Find [L]inks' })
+    vim.keymap.set('n', '<leader>z#', '<Cmd>ZkTags<CR>', { desc = 'Find [#]Tags' })
 
     -- Misc
-    vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = 'Search [!]Index' })
+    vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = 'Find [!]Index' })
     -- vim.keymap.set('v', '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", opts)
     -- vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   end,

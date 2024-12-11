@@ -62,17 +62,15 @@ return {
             filetypes = { 'markdown', 'vimwiki' },
 
             resolve_image_path = function(document_path, image_path, fallback)
+              local config = require 'utils.zk-vault-config'()
               local working_dir = vim.fn.getcwd()
-              local notes_dir = vim.fn.expand(vim.g.notes_dir)
 
-              -- Format image path for Obsidian notes
-              if working_dir:find(notes_dir, 1, true) then
-                return (notes_dir .. '/' .. image_path)
+              if config then
+                -- If inside a .zk notebook use the absolute path of the img
+                return (working_dir .. '/' .. image_path)
+              else
+                return fallback(document_path, image_path)
               end
-
-              -- you can call the fallback function to get the default behavior
-              return fallback(document_path, image_path)
-              -- return (working_dir .. '/' .. image_path)
             end,
           },
           -- This is disabled by default
@@ -100,7 +98,7 @@ return {
         max_height_window_percentage = 40,
 
         -- toggles images when windows are overlapped
-        window_overlap_clear_enabled = false,
+        window_overlap_clear_enabled = true,
         window_overlap_clear_ft_ignore = { 'cmp_menu', 'cmp_docs', '' },
 
         -- auto show/hide images when the editor gains/looses focus

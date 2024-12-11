@@ -192,6 +192,13 @@ return {
         -- ts_ls = {},
         --
 
+        marksman = {
+          on_attach = function(client)
+            -- Disables marksman autocompletion to use zk completion instead
+            client.server_capabilities.completionProvider = false
+          end,
+        },
+
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -232,6 +239,8 @@ return {
         'jsonls',
         'yamlls',
         'bashls',
+        'emmet_language_server',
+        'angularls',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 

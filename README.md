@@ -19,7 +19,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 For the system to work correctly it's important to have all the following packages installed:
 
 ```shell
-yay -Sy neovim ripgrep neofetch zsh starship xdg-ninja stow file-roller cliphist wl-clipboard obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono gnome-shell-extension-caffeine gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection-desktop gnome-shell-extension-tilingshell gnome-shell-extensions-useless-gaps gst-libav qt5-wayland qt6-wayland kitty imagemagick
+yay -Sy neovim luarocks ripgrep neofetch zsh starship xdg-ninja stow file-roller cliphist wl-clipboard obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono gnome-shell-extension-caffeine gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection-desktop gnome-shell-extension-tilingshell gnome-shell-extensions-useless-gaps gst-libav qt5-wayland qt6-wayland kitty imagemagick
 ```
 
 ### Install Oh-My-Zsh!

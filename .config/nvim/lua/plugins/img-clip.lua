@@ -26,10 +26,14 @@ return {
       relative_to_current_file = false, ---@type boolean
       relative_template_path = false, ---@type boolean
 
-      -- I want to save the images in a directory named after the current file,
-      -- but I want the name of the dir to end with `-img`
+      -- Resolves to the default 'assets' folder if not in a zk notebookk
       dir_path = function()
-        return vim.fn.expand(vim.g.notes_assets_dir)
+        local config = require 'utils.zk-vault-config'()
+        if not config then
+          return 'assets'
+        else
+          return vim.fn.expand(config.assets_dir)
+        end
       end,
 
       -- If you want to get prompted for the filename when pasting an image
@@ -40,7 +44,7 @@ return {
       -- I don't want to give my images a name, but instead autofill it using
       -- the date and time as shown on `file_name` below
       prompt_for_file_name = false, ---@type boolean
-      file_name = '%Y-%m-%d-at-%H-%M-%S', ---@type string
+      file_name = '%Y-%m-%d-%H-%M-%S', ---@type string
 
       -- -- Set the extension that the image file will have
       -- -- I'm also specifying the image options with the `process_cmd`
@@ -81,6 +85,16 @@ return {
       -- process_cmd = "convert - -sampling-factor 4:2:0 -strip -interlace JPEG -colorspace RGB -quality 75 jpg:-",
       -- process_cmd = "convert - -strip -interlace Plane -gaussian-blur 0.05 -quality 75 jpg:-",
       --
+
+      -- image options
+      copy_images = true, ---@type boolean | fun(): boolean
+      download_images = true, ---@type boolean | fun(): boolean
+
+      -- drag and drop options
+      drag_and_drop = {
+        enabled = true, ---@type boolean | fun(): boolean
+        insert_mode = true, ---@type boolean | fun(): boolean
+      },
     },
 
     -- filetype specific options
@@ -102,12 +116,12 @@ return {
         --
         -- -- This will dynamically configure the alternative text to show the
         -- -- same that you configured as the "file_name" above
-        template = '![$FILE_NAME]($FILE_PATH)', ---@type string
+        template = '![$FILE_NAME](/$FILE_PATH)', ---@type string
       },
     },
   },
   keys = {
     -- suggested keymap
-    { '<leader>ip', '<cmd>PasteImage<cr>', desc = 'Paste image from system clipboard' },
+    { '<leader>zp', '<cmd>PasteImage<cr>', desc = '[P]aste Image from system clipboard' },
   },
 }
