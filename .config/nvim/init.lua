@@ -93,10 +93,8 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
--- Set my global directory of notes
--- TODO: make this more dynamic, maybe it can check for the cwd?
-vim.g.notes_dir = '~/03 Resources/Notes'
-vim.g.notes_assets_dir = '00-assets'
+-- Overrides netrw_browsex_viewer to cd to the current directory
+vim.g.netrw_browsex_viewer = 'cd %:h && xdg-open'
 
 -- [[ Setting options ]]
 require 'options'

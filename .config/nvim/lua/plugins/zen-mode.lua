@@ -24,7 +24,12 @@ return {
           laststatus = 0, -- turn off the statusline in zen mode
           ruler = true, -- disables the ruler text in the cmd line area
         },
-        gitsigns = { enabled = false }, -- disables git signs
+        gitsigns = {
+          enabled = false,
+        }, -- disables git signs
+        twilight = {
+          enabled = true,
+        },
       },
     }
 

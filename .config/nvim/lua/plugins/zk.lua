@@ -84,17 +84,8 @@ return {
     vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { desc = 'Find [L]inks' })
     vim.keymap.set('n', '<leader>z#', '<Cmd>ZkTags<CR>', { desc = 'Find [#]Tags' })
 
-    -- jump to the next link
-    vim.api.nvim_set_keymap('n', ']n', [[lua vim.diagnostic.goto_next { severity = vim.diagnostic.severity.HINT }<cr>]], { noremap = true, silent = true })
-
-    -- jump to the previous link
-    vim.api.nvim_set_keymap('n', '[n', [[lua vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.HINT }<cr>]], { noremap = true, silent = true })
-
     -- Misc
     vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[!]Index Notes' })
     vim.keymap.set('n', '<leader>zz', zkOpenIndex, { desc = 'Open [Z]ettelkasten Index' })
-
-    -- vim.keymap.set('v', '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", opts)
-    -- vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   end,
 }
