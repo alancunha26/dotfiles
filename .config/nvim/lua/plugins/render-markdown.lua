@@ -9,17 +9,17 @@ return {
     sign = {
       enabled = false,
     },
-    link = {
-      enabled = false,
-    },
-    quote = {
-      repeat_linebreak = true,
-    },
-    checkbox = {
-      enabled = false,
-    },
-    win_options = {
-      conceallevel = { rendered = 0 },
-    },
+    -- link = {
+    --   enabled = false,
+    -- },
+    -- quote = {
+    --   repeat_linebreak = true,
+    -- },
+    -- checkbox = {
+    --   enabled = false,
+    -- },
+    -- win_options = {
+    --   conceallevel = { rendered = 0 },
+    -- },
   },
 }

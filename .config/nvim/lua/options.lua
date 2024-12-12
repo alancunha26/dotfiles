@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   callback = function()
     vim.opt.wrap = false
     vim.opt.textwidth = 80
-    vim.opt.conceallevel = 0
+    -- vim.opt.conceallevel = 0
     vim.opt.tabstop = 2
     vim.opt.shiftwidth = 2
     vim.bo.softtabstop = 2

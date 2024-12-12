@@ -58,19 +58,23 @@ return {
 
     local zkOpenDailyNote = function()
       local file = os.date(daily_id_format) .. '.md'
-      local title = os.date(daily_title_format) .. '.md'
+      local title = os.date(daily_title_format)
       local path = daily_dir .. '/' .. file
 
       if vim.fn.filereadable(path) == 1 then
         vim.cmd('edit ' .. path)
       else
-        commands.get 'ZkNew' { dir = daily_dir, title = title }
+        commands.get 'ZkNew' { dir = daily_dir, title = title, group = 'daily' }
       end
+    end
+
+    local zkOpenIndex = function()
+      vim.cmd('edit ' .. zettels_dir .. '/index.md')
     end
 
     -- Manipulation
     vim.keymap.set('n', '<leader>zn', '<Cmd>ZkNew { dir = "' .. zettels_dir .. '", title = vim.fn.input("Title: ") }<CR>', { desc = '[N]ew Note' })
-    vim.keymap.set('v', '<leader>zn', ":'<,'>ZkNewFromTitleSelection { dir = " .. zettels_dir .. ' }<CR>', { desc = '[N]ew Note From Selection' })
+    vim.keymap.set('v', '<leader>zn', ":'<,'>ZkNewFromTitleSelection { dir = \"" .. zettels_dir .. '" }<CR>', { desc = '[N]ew Note From Selection' })
     vim.keymap.set('n', '<leader>zt', zkNewNoteFromTemplate, { desc = 'New Note From [T]emplate' })
     vim.keymap.set('n', '<leader>zd', zkOpenDailyNote, { desc = 'Open [D]aily Note' })
 
@@ -80,8 +84,16 @@ return {
     vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { desc = 'Find [L]inks' })
     vim.keymap.set('n', '<leader>z#', '<Cmd>ZkTags<CR>', { desc = 'Find [#]Tags' })
 
+    -- jump to the next link
+    vim.api.nvim_set_keymap('n', ']n', [[lua vim.diagnostic.goto_next { severity = vim.diagnostic.severity.HINT }<cr>]], { noremap = true, silent = true })
+
+    -- jump to the previous link
+    vim.api.nvim_set_keymap('n', '[n', [[lua vim.diagnostic.goto_prev { severity = vim.diagnostic.severity.HINT }<cr>]], { noremap = true, silent = true })
+
     -- Misc
-    vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = 'Find [!]Index' })
+    vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[!]Index Notes' })
+    vim.keymap.set('n', '<leader>zz', zkOpenIndex, { desc = 'Open [Z]ettelkasten Index' })
+
     -- vim.keymap.set('v', '<leader>za', ":'<,'>lua vim.lsp.buf.range_code_action()<CR>", opts)
     -- vim.keymap.set('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   end,
