@@ -37,7 +37,7 @@ return {
     local daily_id_format = config.daily_id_format
     local daily_title_format = config.daily_title_format
 
-    local zkNewNoteFromTemplate = function()
+    local function zk_new_note_from_template()
       builtin.find_files {
         follow = false,
         search_dirs = { '.zk/templates' },
@@ -56,7 +56,7 @@ return {
       }
     end
 
-    local zkOpenDailyNote = function()
+    local function zk_open_daily_note()
       local file = os.date(daily_id_format) .. '.md'
       local title = os.date(daily_title_format)
       local path = daily_dir .. '/' .. file
@@ -68,15 +68,11 @@ return {
       end
     end
 
-    local zkOpenIndex = function()
-      vim.cmd('edit ' .. zettels_dir .. '/index.md')
-    end
-
     -- Manipulation
     vim.keymap.set('n', '<leader>zn', '<Cmd>ZkNew { dir = "' .. zettels_dir .. '", title = vim.fn.input("Title: ") }<CR>', { desc = '[N]ew Note' })
     vim.keymap.set('v', '<leader>zn', ":'<,'>ZkNewFromTitleSelection { dir = \"" .. zettels_dir .. '" }<CR>', { desc = '[N]ew Note From Selection' })
-    vim.keymap.set('n', '<leader>zt', zkNewNoteFromTemplate, { desc = 'New Note From [T]emplate' })
-    vim.keymap.set('n', '<leader>zd', zkOpenDailyNote, { desc = 'Open [D]aily Note' })
+    vim.keymap.set('n', '<leader>zt', zk_new_note_from_template, { desc = 'New Note From [T]emplate' })
+    vim.keymap.set('n', '<leader>zd', zk_open_daily_note, { desc = 'Open [D]aily Note' })
 
     -- Navigation
     vim.keymap.set('n', '<leader>zf', '<Cmd>ZkNotes<CR>', { desc = 'Find [F]iles' })
@@ -86,6 +82,6 @@ return {
 
     -- Misc
     vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[!]Index Notes' })
-    vim.keymap.set('n', '<leader>zz', zkOpenIndex, { desc = 'Open [Z]ettelkasten Index' })
+    vim.keymap.set('n', '<leader>zz', vim.cmd('edit ' .. zettels_dir .. '/index.md'), { desc = 'Open [Z]ettelkasten Index' })
   end,
 }

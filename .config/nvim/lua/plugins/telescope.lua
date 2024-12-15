@@ -96,7 +96,7 @@ return {
           sort_mru = true,
           ignore_current_buffer = false,
           show_all_buffers = true,
-          initial_mode = 'normal',
+          initial_mode = 'insert',
 
           attach_mappings = function(prompt_bufnr, map)
             local refresh_buffer_searcher = function()
@@ -138,6 +138,7 @@ return {
       vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
       vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', buffer_searcher, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>ss', builtin.spell_suggest, { desc = '[S]pellcheck Suggestions' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
