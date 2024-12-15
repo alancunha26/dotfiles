@@ -1,4 +1,4 @@
-y dotfiles will install a fully-featured tiling window manager environment on any Arch Linux based system, with custom theming, gaming on linux, completely keyboard-centric functionality (vim-motions) and a lot more.
+My dotfiles will install a fully-featured tiling window manager environment on any Arch Linux based system, with custom theming, gaming on linux, completely keyboard-centric functionality (vim-motions) and a lot more.
 
 -> [How to dual boot arch linux and Windows 10/11 using archinstall script (UPDATED)!!!!!!](https://www.youtube.com/watch?v=Np6k3Pilz-I)
 

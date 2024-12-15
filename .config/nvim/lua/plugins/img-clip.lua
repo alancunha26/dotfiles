@@ -102,26 +102,12 @@ return {
       markdown = {
         -- encode spaces and special characters in file path
         url_encode_path = true, ---@type boolean
-
-        -- -- The template is what specifies how the alternative text and path
-        -- -- of the image will appear in your file
-        --
-        -- -- $CURSOR will paste the image and place your cursor in that part so
-        -- -- you can type the "alternative text", keep in mind that this will
-        -- -- not affect the name that the image physically has
-        -- template = "![$CURSOR]($FILE_PATH)", ---@type string
-        --
-        -- -- This will just statically type "Image" in the alternative text
-        -- template = "![Image]($FILE_PATH)", ---@type string
-        --
-        -- -- This will dynamically configure the alternative text to show the
-        -- -- same that you configured as the "file_name" above
         template = '![$FILE_NAME](/$FILE_PATH)', ---@type string
       },
     },
   },
   keys = {
     -- suggested keymap
-    { '<leader>zp', '<cmd>PasteImage<cr>', desc = '[P]aste Image from system clipboard' },
+    { '<leader>pi', '<cmd>PasteImage<cr>', desc = '[P]aste [I]mage from system clipboard' },
   },
 }

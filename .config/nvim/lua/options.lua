@@ -70,6 +70,10 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Setup spellcheck languages
+vim.opt.spelllang = 'en_us,pt_br'
+vim.opt.spell = true
+
 -- When text reaches this limit, it automatically wraps to the next line.
 -- This WILL NOT auto wrap existing lines, or if you paste a long line into a
 -- file it will not wrap it as well
@@ -78,10 +82,9 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   callback = function()
     vim.opt.wrap = false
     vim.opt.textwidth = 80
-    -- vim.opt.conceallevel = 0
     vim.opt.tabstop = 2
     vim.opt.shiftwidth = 2
-    vim.bo.softtabstop = 2
+    vim.opt.softtabstop = 2
     vim.opt.expandtab = true
   end,
 })
