@@ -16,5 +16,8 @@ eval "$(starship init zsh)"
 # Startup ASDFK package manager
 . "$HOME/.asdf/asdf.sh"
 
+# set JAVA_HOME
+. ~/.asdf/plugins/java/set-java-home.zsh
+
 # Run neofetch
 neofetch
