@@ -68,6 +68,10 @@ return {
       end
     end
 
+    local function zk_open_index()
+      vim.cmd('edit ' .. zettels_dir .. '/index.md')
+    end
+
     -- Manipulation
     vim.keymap.set('n', '<leader>zn', '<Cmd>ZkNew { dir = "' .. zettels_dir .. '", title = vim.fn.input("Title: ") }<CR>', { desc = '[N]ew Note' })
     vim.keymap.set('v', '<leader>zn', ":'<,'>ZkNewFromTitleSelection { dir = \"" .. zettels_dir .. '" }<CR>', { desc = '[N]ew Note From Selection' })
@@ -82,6 +86,6 @@ return {
 
     -- Misc
     vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[!]Index Notes' })
-    vim.keymap.set('n', '<leader>zz', vim.cmd('edit ' .. zettels_dir .. '/index.md'), { desc = 'Open [Z]ettelkasten Index' })
+    vim.keymap.set('n', '<leader>zz', zk_open_index, { desc = 'Open [Z]ettelkasten Index' })
   end,
 }
