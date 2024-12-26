@@ -9,7 +9,7 @@ return {
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
-    branch = '0.1.x',
+    branch = 'master',
     dependencies = {
       'nvim-lua/plenary.nvim',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -57,11 +57,22 @@ return {
         --  All the info you're looking for is in `:help telescope.setup()`
         --
         defaults = {
+          layout_strategy = 'vertical',
           sorting_strategy = 'ascending', -- display results top->bottom
+
           layout_config = {
-            prompt_position = 'top', -- search bar at the top
+            prompt_position = 'bottom', -- search bar at the top
+            height = 0.9,
+            width = 0.9,
+          },
+
+          path_display = {
+            filename_first = {
+              reverse_directories = false,
+            },
           },
         },
+
         pickers = {
           live_grep = {
             file_ignore_patterns = { 'node_modules', '.git', '.venv' },
