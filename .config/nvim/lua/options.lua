@@ -72,7 +72,7 @@ vim.opt.scrolloff = 10
 
 -- Setup spellcheck languages
 vim.opt.spelllang = 'en_us,pt_br'
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- When text reaches this limit, it automatically wraps to the next line.
 -- This WILL NOT auto wrap existing lines, or if you paste a long line into a
@@ -86,6 +86,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     vim.opt.shiftwidth = 2
     vim.opt.softtabstop = 2
     vim.opt.expandtab = true
+    vim.opt.spell = true
   end,
 })
 
