@@ -96,13 +96,16 @@ return {
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
 
-      -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
-      local action_state = require 'telescope.actions.state'
       local actions = require 'telescope.actions'
+      local finders = require 'telescope.finders'
+      local pickers = require 'telescope.pickers'
+      local conf = require('telescope.config').values
+      local entry_display = require 'telescope.pickers.entry_display'
+      local action_state = require 'telescope.actions.state'
 
       -- This method enables to delete buffers from the telescope menu
-      buffer_searcher = function()
+      function buffer_searcher()
         builtin.buffers {
           sort_mru = true,
           ignore_current_buffer = false,
@@ -139,6 +142,104 @@ return {
         }
       end
 
+      local emojis = require 'utils.emojis'
+      local icons = require 'utils.nerd-font-icons'
+
+      local function find_emojis()
+        local displayer = entry_display.create {
+          separator = ' ',
+          items = {
+            { width = 40 },
+            { width = 18 },
+            { remaining = true },
+          },
+        }
+        local make_display = function(entry)
+          return displayer {
+            entry.value .. ' ' .. entry.name,
+            entry.category,
+            entry.description,
+          }
+        end
+
+        pickers
+          .new(opts, {
+            prompt_title = 'Emojis',
+            sorter = conf.generic_sorter(opts),
+            finder = finders.new_table {
+              results = emojis,
+              entry_maker = function(emoji)
+                return {
+                  ordinal = emoji.name .. emoji.category .. emoji.description,
+                  display = make_display,
+
+                  name = emoji.name,
+                  value = emoji.value,
+                  category = emoji.category,
+                  description = emoji.description,
+                }
+              end,
+            },
+            attach_mappings = function(prompt_bufnr)
+              actions.select_default:replace(function()
+                local emoji = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
+
+                vim.fn.setreg('+', emoji.value)
+                print([[Press p or "*p to paste this emoji]] .. emoji.value)
+              end)
+              return true
+            end,
+          })
+          :find()
+      end
+
+      local function find_icons()
+        local displayer = entry_display.create {
+          separator = ' ',
+          items = {
+            { width = 40 },
+            { width = 18 },
+            { remaining = true },
+          },
+        }
+
+        local make_display = function(entry)
+          return displayer {
+            entry.char .. ' ' .. entry.name,
+          }
+        end
+
+        pickers
+          .new(opts, {
+            prompt_title = 'Nerd Font Icons',
+            sorter = conf.generic_sorter(opts),
+            finder = finders.new_table {
+              results = icons,
+              entry_maker = function(icon)
+                return {
+                  ordinal = icon.name,
+                  display = make_display,
+
+                  name = icon.name,
+                  char = icon.char,
+                }
+              end,
+            },
+            attach_mappings = function(prompt_bufnr)
+              actions.select_default:replace(function()
+                local icon = action_state.get_selected_entry()
+                actions.close(prompt_bufnr)
+
+                vim.fn.setreg('+', icon.char)
+                print([[Press p or "*p to paste this icon]] .. icon.char)
+              end)
+              return true
+            end,
+          })
+          :find()
+      end
+
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
       vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
@@ -150,6 +251,8 @@ return {
       vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', buffer_searcher, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>ss', builtin.spell_suggest, { desc = '[S]pellcheck Suggestions' })
+      vim.keymap.set('n', '<leader>fe', find_emojis, { desc = '[F]ind [E]mojis' })
+      vim.keymap.set('n', '<leader>fi', find_icons, { desc = '[F]ind [I]cons' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()

@@ -102,7 +102,7 @@ return {
       markdown = {
         -- encode spaces and special characters in file path
         url_encode_path = true, ---@type boolean
-        template = '![$FILE_NAME](/$FILE_PATH)', ---@type string
+        template = '![$FILE_NAME]($FILE_PATH)', ---@type string
       },
     },
   },

@@ -1,7 +1,6 @@
 return {
   'zk-org/zk-nvim',
   -- enabled = false,
-  -- For some reason the condition is not working correctly
   cond = function()
     return vim.fn.isdirectory(vim.fn.getcwd() .. '/.zk') == 1
   end,
@@ -13,6 +12,11 @@ return {
         config = {
           cmd = { 'zk', 'lsp' },
           name = 'zk',
+
+          on_attach = function(client)
+            -- Disables definition provider to use marksman instead
+            client.server_capabilities.definitionProvider = false
+          end,
         },
 
         auto_attach = {
@@ -47,8 +51,10 @@ return {
             local selection = action_state.get_selected_entry()
             actions.close(prompt_bufnr)
 
-            local tmp_name = vim.fn.fnamemodify(selection[1], ':t')
-            commands.get 'ZkNew' { dir = zettels_dir, template = tmp_name, title = vim.fn.input 'Title: ' }
+            local tmp_name = vim.fn.fnamemodify(selection[1], ':p')
+            local title = vim.fn.input 'Title: '
+            commands.get 'ZkNew' { dir = zettels_dir, template = tmp_name, title = title }
+            print(tmp_name)
           end)
 
           return true
