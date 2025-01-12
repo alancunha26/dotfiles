@@ -52,9 +52,9 @@ return {
             actions.close(prompt_bufnr)
 
             local tmp_name = vim.fn.fnamemodify(selection[1], ':p')
-            local title = vim.fn.input 'Title: '
-            commands.get 'ZkNew' { dir = zettels_dir, template = tmp_name, title = title }
-            print(tmp_name)
+            vim.ui.input({ prompt = 'Title: ' }, function(title)
+              commands.get 'ZkNew' { dir = zettels_dir, template = tmp_name, title = title }
+            end)
           end)
 
           return true
