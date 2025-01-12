@@ -53,7 +53,7 @@ vim.opt.splitbelow = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
-vim.bo.softtabstop = 2
+vim.opt.softtabstop = 2
 
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
@@ -89,5 +89,11 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     vim.opt.spell = true
   end,
 })
+
+-- LazyVim config
+
+vim.g.lazyvim_picker = 'telescope'
+vim.g.lazyvim_eslint_auto_format = true
+vim.g.lazyvim_prettier_needs_config = false
 
 -- vim: ts=2 sts=2 sw=2 et
