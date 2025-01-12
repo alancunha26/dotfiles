@@ -4,7 +4,9 @@ return {
   ft = {
     'markdown',
     'text',
-    'txt',
+    'tex',
+    'plaintex',
+    'norg',
   },
   init = function()
     vim.g.bullets_outline_levels = { 'ROM', 'ABC', 'num', 'abc', 'rom', 'std-' }

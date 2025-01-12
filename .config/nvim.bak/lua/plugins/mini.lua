@@ -17,12 +17,6 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      -- Add pairs support
-      require('mini.pairs').setup()
-
-      -- Brackets navigation
-      require('mini.bracketed').setup()
-
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
