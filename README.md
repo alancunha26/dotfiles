@@ -22,10 +22,18 @@ For the system to work correctly it's important to have all the following packag
 yay -Sy neovim luarocks ripgrep neofetch zsh starship xdg-ninja stow file-roller cliphist wl-clipboard obs-studio obsidian-bin zed pacseek dconf-editor ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono gnome-shell-extension-caffeine gnome-shell-extension-blur-my-shell gnome-shell-extension-just-perfection-desktop gnome-shell-extension-tilingshell gnome-shell-extensions-useless-gaps gst-libav qt5-wayland qt6-wayland kitty imagemagick gnome-shell-extension-pop-shell
 ```
 
-Alternatively you can install de TTY version:
+#### Install the WSL TTY version (Optional)
+
+Alternatively you can install the WSL version:
 
 ```shell
-yay -Sy neovim luarocks ripgrep neofetch zsh starship xdg-ninja stow cliphist wl-clipboard pacseek ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+yay -Sy neovim luarocks ripgrep neofetch zsh starship xdg-ninja stow pacseek ttf-fira-code ttf-firacode-nerd ttf-ia-writer otf-font-awesome ttf-jetbrains-mono-nerd ttf-jetbrains-mono
+```
+
+Install the clipboard manager for WSL integration on windows:
+
+```shell
+winget install --id=equalsraf.win32yank  -e
 ```
 
 ### Install Oh-My-Zsh!
