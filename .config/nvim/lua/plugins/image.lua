@@ -64,17 +64,17 @@ return {
             -- markdown extensions (ie. quarto) can go here
             filetypes = { 'markdown', 'vimwiki' },
 
-            resolve_image_path = function(document_path, image_path, fallback)
-              local config = require 'utils.zk-vault-config'()
-              local working_dir = vim.fn.getcwd()
-
-              if config then
-                -- If inside a .zk notebook use the absolute path of the img
-                return (working_dir .. '/' .. image_path)
-              else
-                return fallback(document_path, image_path)
-              end
-            end,
+            -- resolve_image_path = function(document_path, image_path, fallback)
+            --   local config = require 'utils.zk-vault-config'()
+            --   local working_dir = vim.fn.getcwd()
+            --
+            --   if config then
+            --     -- If inside a .zk notebook use the absolute path of the img
+            --     return (working_dir .. '/' .. image_path)
+            --   else
+            --     return fallback(document_path, image_path)
+            --   end
+            -- end,
           },
           -- This is disabled by default
           -- Detect and render images referenced in HTML files

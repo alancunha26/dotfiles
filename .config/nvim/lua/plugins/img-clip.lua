@@ -44,7 +44,11 @@ return {
       -- I don't want to give my images a name, but instead autofill it using
       -- the date and time as shown on `file_name` below
       prompt_for_file_name = false, ---@type boolean
-      file_name = '%Y-%m-%d-%H-%M-%S', ---@type string
+
+      ---@type string | fun(): string
+      file_name = function()
+        return '%Y-%m-%d-%H-%M-%S'
+      end,
 
       -- -- Set the extension that the image file will have
       -- -- I'm also specifying the image options with the `process_cmd`
@@ -102,6 +106,7 @@ return {
       markdown = {
         -- encode spaces and special characters in file path
         url_encode_path = true, ---@type boolean
+        relative_template_path = true, ---@type boolean
         template = '![$FILE_NAME]($FILE_PATH)', ---@type string
       },
     },

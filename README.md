@@ -70,6 +70,12 @@ yay -R gnome-console epiphany vim
 sudo pacman -Rsn $(pacman -Qdtq)
 ```
 
+### Install short-unique-id package
+
+```shell
+npm install --global short-unique-id
+```
+
 ### Install NVIDIA Support (Optional)
 
 Do this ONLY if you need Nvidia support (do this first)
