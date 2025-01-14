@@ -186,7 +186,7 @@ return {
                 actions.close(prompt_bufnr)
 
                 vim.fn.setreg('+', emoji.value)
-                vim.notify('Press p or "*p to paste this emoji ' .. emoji.value, vim.log.levels.INFO, { title = 'Info' })
+                vim.notify('Press p or "*p to paste this emoji ' .. emoji.value, vim.log.levels.INFO)
               end)
               return true
             end,

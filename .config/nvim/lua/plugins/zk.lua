@@ -49,11 +49,11 @@ return {
         attach_mappings = function(prompt_bufnr)
           actions.select_default:replace(function()
             local selection = action_state.get_selected_entry()
+            local tmp_name = vim.fn.fnamemodify(selection[1], ':p')
             actions.close(prompt_bufnr)
 
-            local tmp_name = vim.fn.fnamemodify(selection[1], ':p')
             vim.ui.input({ prompt = 'Title: ' }, function(title)
-              commands.get 'ZkNew' { dir = zettels_dir, template = tmp_name, title = title }
+              require('zk').new({ dir = zettels_dir, template = tmp_name, title = title }, nil)
             end)
           end)
 
@@ -126,6 +126,7 @@ return {
     vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { desc = 'Find [L]inks' })
     vim.keymap.set('n', '<leader>z#', '<Cmd>ZkTags<CR>', { desc = 'Find [#]Tags' })
     vim.keymap.set('n', '<leader>zm', zk_find_unlinked_mentions, { desc = 'Find [Z]ettelkasten Unlinked [M]entions' })
+    vim.keymap.set('n', '<leader>z<leader>', '<Cmd>ZkBuffers<CR>', { desc = 'Find [Z]ettelkasten [ ]buffers' })
 
     -- Misc
     vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[!]Index Notes' })
