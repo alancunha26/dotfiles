@@ -93,6 +93,11 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Set variable to know if is a WSL session
+local wsl_interop = os.getenv 'WSL_INTEROP'
+local wsl_distro_name = os.getenv 'WSL_DISTRO_NAME'
+vim.g.have_wsl_session = wsl_interop ~= nil or wsl_distro_name ~= nil
+
 -- Overrides netrw_browsex_viewer to cd to the current directory
 vim.g.netrw_browsex_viewer = 'cd %:h && xdg-open'
 

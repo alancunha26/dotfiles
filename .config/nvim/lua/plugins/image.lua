@@ -23,7 +23,6 @@
 -- -- homebrew
 -- package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?/init.lua"
 -- package.path = package.path .. ";" .. vim.fn.expand("$HOME") .. "/.luarocks/share/lua/5.1/?.lua"
-
 return {
   {
     -- luarocks.nvim is a Neovim plugin designed to streamline the installation
@@ -41,6 +40,10 @@ return {
   {
     '3rd/image.nvim',
     dependencies = { 'luarocks.nvim' },
+    cond = function()
+      -- Disables plugin when on WSL
+      return not vim.g.have_wsl_session
+    end,
     config = function()
       require('image').setup {
         backend = 'kitty',
