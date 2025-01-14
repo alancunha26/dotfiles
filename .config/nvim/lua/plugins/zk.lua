@@ -74,8 +74,44 @@ return {
       end
     end
 
+    -- Opens the default index note
     local function zk_open_index()
       vim.cmd('edit ' .. zettels_dir .. '/index.md')
+    end
+
+    -- This function opens a telescope list of unlinked mentions (notes) of the current buffer
+    -- To run this on cmd -> 'zk unlinked-mentions NOTE_ID --quiet --format "{{path}}" --delimiter "\n"'
+    local function zk_find_unlinked_mentions()
+      local mention = vim.fn.expand '%:t'
+
+      if mention == nil then
+        vim.notify("There's no buffer currently open", vim.log.levels.INFO)
+      end
+
+      local options = {
+        linkTo = { mention },
+        select = { 'path' },
+      }
+
+      require('zk.api').list(nil, options, function(err, notes)
+        if err ~= nil then
+          vim.notify(err, vim.log.levels.ERROR)
+          return
+        end
+
+        local paths = vim
+          .iter(pairs(notes))
+          :map(function(_, note)
+            return note.path
+          end)
+          :totable()
+
+        require('zk').pick_notes({ mention = { mention }, excludeHrefs = paths }, nil, function(selected)
+          if selected[1] ~= nil then
+            vim.cmd('edit ' .. selected[1].absPath)
+          end
+        end)
+      end)
     end
 
     -- Manipulation
@@ -89,6 +125,7 @@ return {
     vim.keymap.set('n', '<leader>zb', '<Cmd>ZkBacklinks<CR>', { desc = 'Find [B]acklinks' })
     vim.keymap.set('n', '<leader>zl', '<Cmd>ZkLinks<CR>', { desc = 'Find [L]inks' })
     vim.keymap.set('n', '<leader>z#', '<Cmd>ZkTags<CR>', { desc = 'Find [#]Tags' })
+    vim.keymap.set('n', '<leader>zm', zk_find_unlinked_mentions, { desc = 'Find [Z]ettelkasten Unlinked [M]entions' })
 
     -- Misc
     vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[!]Index Notes' })
