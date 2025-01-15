@@ -47,7 +47,13 @@ return {
 
       ---@type string | fun(): string
       file_name = function()
-        return '%Y-%m-%d-%H-%M-%S'
+        local id = require 'utils.zk-short-id'()
+
+        if id ~= nil then
+          return id
+        else
+          return '%Y-%m-%d-%H-%M-%S'
+        end
       end,
 
       -- -- Set the extension that the image file will have
@@ -55,8 +61,8 @@ return {
       -- -- Notice that I HAVE to convert the images to the desired format
       -- -- If you don't specify the output format, you won't see the size decrease
 
-      extension = 'avif', ---@type string
-      process_cmd = 'convert - -quality 75 avif:-', ---@type string
+      extension = 'png', ---@type string
+      process_cmd = 'convert - -quality 100 png:-', ---@type string
 
       -- extension = "webp", ---@type string
       -- process_cmd = "convert - -quality 75 webp:-", ---@type string
@@ -107,7 +113,7 @@ return {
         -- encode spaces and special characters in file path
         url_encode_path = true, ---@type boolean
         relative_template_path = true, ---@type boolean
-        template = '![$FILE_NAME]($FILE_PATH)', ---@type string
+        template = '![$CURSOR]($FILE_PATH)', ---@type string
       },
     },
   },
