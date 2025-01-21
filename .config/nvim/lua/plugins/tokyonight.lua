@@ -15,6 +15,10 @@ return {
       on_colors = function(colors)
         colors.border = '#565f89'
       end,
+      on_highlights = function(hl, c)
+        hl['@markup.italic.markdown_inline'] = { fg = c.orange }
+        hl['@markup.strong.markdown_inline'] = { bold = true, fg = c.red }
+      end,
     },
     init = function()
       -- Load the colorscheme here.

@@ -28,6 +28,8 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+vim.keymap.set('n', 'zZ', 'zszH', { desc = 'Move screen to the center of cursor (horizontal)' })
+
 -- Beter gx -> Open files with vim.ui.open relative to the current buffer
 vim.keymap.set('n', 'gx', function()
   local filename = vim.fn.expand '<cfile>%:t'

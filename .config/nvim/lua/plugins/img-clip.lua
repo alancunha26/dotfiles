@@ -62,7 +62,7 @@ return {
       -- -- If you don't specify the output format, you won't see the size decrease
 
       extension = 'png', ---@type string
-      process_cmd = 'convert - -quality 100 png:-', ---@type string
+      -- process_cmd = 'convert - -quality 100 png:-', ---@type string
 
       -- extension = "webp", ---@type string
       -- process_cmd = "convert - -quality 75 webp:-", ---@type string
