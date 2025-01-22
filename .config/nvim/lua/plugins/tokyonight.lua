@@ -16,7 +16,7 @@ return {
         colors.border = '#565f89'
       end,
       on_highlights = function(hl, c)
-        hl['@markup.italic.markdown_inline'] = { fg = c.orange }
+        hl['@markup.italic.markdown_inline'] = { fg = c.yellow }
         hl['@markup.strong.markdown_inline'] = { bold = true, fg = c.red }
       end,
     },

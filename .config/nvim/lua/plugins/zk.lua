@@ -132,7 +132,7 @@ return {
           return
         end
 
-        for i, note in ipairs(notes) do
+        for _, note in ipairs(notes) do
           if not vim.list_contains(state.notes, note.path) then
             table.insert(state.notes, note.path)
             zk_recursive(note.path, cb, state)
@@ -140,8 +140,8 @@ return {
         end
 
         state.concurrency = state.concurrency - 1
-        if state.concurrency == 0 then
-          vim.notify(vim.inspect(vim.fn.len(state.notes)), vim.log.levels.INFO)
+        if state.concurrency == 0 and notes ~= nil then
+          cb(notes)
         end
       end)
     end
@@ -154,8 +154,12 @@ return {
       end
 
       zk_recursive(title, function(notes)
-        vim.notify(vim.inspect(notes), vim.log.levels.INFO)
+        vim.notify(vim.inspect(vim.fn.len(notes)), vim.log.levels.INFO)
       end)
+    end
+
+    local function zk_query_builder()
+      vim.notify('ZK Query Builder', vim.log.levels.INFO)
     end
 
     -- Manipulation
@@ -172,6 +176,7 @@ return {
     vim.keymap.set('n', '<leader>z<leader>', '<Cmd>ZkBuffers<CR>', { desc = '[Z]ettelkasten [ ]buffers' })
     vim.keymap.set('n', '<leader>zm', zk_mentions, { desc = '[Z]ettelkasten Unlinked [M]entions' })
     vim.keymap.set('n', '<leader>zr', zk_find_recursive, { desc = '[Z]ettelkasten [R]ecursive links' })
+    vim.keymap.set('n', '<leader>zq', zk_query_builder, { desc = '[Z]ettelkasten [Q]uery builder' })
 
     -- Misc
     vim.keymap.set('n', '<leader>z!', '<Cmd>ZkIndex<CR>', { desc = '[Z]ettelkasten [!]Index' })
