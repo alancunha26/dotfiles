@@ -86,6 +86,10 @@ The [`ltex` LSP server](https://github.com/neovim/nvim-lspconfig/blob/master/doc
 
 So, in my case I have `~/.ngrams/en`.
 
+> [!warning]
+>
+> If the LSP doesn't work, download the latest release of ltex and copy the `jdk` binaries into `~/.local/share/nvim/mason/packages/ltex-ls`.
+
 ### Install NVIDIA Support (Optional)
 
 Do this ONLY if you need Nvidia support (do this first)

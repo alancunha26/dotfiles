@@ -189,7 +189,6 @@ return {
           end,
         },
 
-        -- See: https://github.com/williamboman/mason.nvim/issues/1531#issuecomment-1913117887
         ltex = {
           flags = {
             debounce_text_changes = 300,
@@ -201,6 +200,12 @@ return {
               additionalRules = { languageModel = '~/.ngrams/' },
             },
           },
+          -- on_attach = function()
+          --   -- See: https://github.com/williamboman/mason.nvim/issues/1531#issuecomment-1913117887
+          --   vim.env.JAVA_HOME = vim.fs.find(function(name)
+          --     return vim.startswith(name, 'jdk-')
+          --   end, { path = vim.fn.stdpath 'data' .. '/mason/packages/ltex-ls/', type = 'directory' })[1]
+          -- end,
         },
 
         lua_ls = {
