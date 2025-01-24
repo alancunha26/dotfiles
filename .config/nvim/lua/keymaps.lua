@@ -11,14 +11,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><cmd>Noice dismiss<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
@@ -27,7 +19,6 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 vim.keymap.set('n', 'zZ', 'zszH', { desc = 'Move screen to the center of cursor (horizontal)' })
 
 -- Beter gx -> Open files with vim.ui.open relative to the current buffer
@@ -62,7 +53,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Toggle spell check
 vim.keymap.set('n', '<leader>st', function()
-  vim.opt.spell = not (vim.opt.spell:get())
+  -- Native spellcheck
+  -- vim.opt.spell = not (vim.opt.spell:get())
+
+  -- ltex grammar/spellcheck
+  local buf_clients = vim.lsp.get_clients { bufnr = 0 }
+
+  for _, client in pairs(buf_clients) do
+    if client.name == 'ltex' then
+      client.stop()
+      return
+    end
+  end
+
+  vim.cmd 'LspStart ltex'
 end, { desc = '[S]pellcheck [T]oggle' })
 
 -- Show spelling suggestions / spell suggestions.

@@ -72,9 +72,19 @@ sudo pacman -Rsn $(pacman -Qdtq)
 
 ### Install short-unique-id package
 
+This is used to generate unique short ids in my [note taking system](https://github.com/alancunha26/Notes).
+
 ```shell
 npm install --global short-unique-id
 ```
+
+### Grammar support with LSP
+
+The [`ltex` LSP server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#ltex) supports language models that can be used to suggest fixes for more nuanced grammar issues. These models are rather large, so I opted to exclude packaging it directly. While the model is missing, the ltex lsp server still works, but to get more capabilities you can download [ngrams](https://dev.languagetool.org/finding-errors-using-n-gram-data.html) and unzip the model at `~/.ngrams`.
+
+> Unzip it and put it in its own directory named en, de, fr, or es, depending on the language. The path you need to set in the next step is the directory that the en etc. directory is in, not that directory itself.
+
+So, in my case I have `~/.ngrams/en`.
 
 ### Install NVIDIA Support (Optional)
 
@@ -176,7 +186,7 @@ Check the main [source](https://www.reddit.com/r/linux_gaming/comments/knu89x/ho
 
 Enable `multilib` in `/etc/pacman.conf`.
 
-```
+```toml
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```

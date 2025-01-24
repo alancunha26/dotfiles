@@ -86,8 +86,10 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
     vim.opt.shiftwidth = 2
     vim.opt.softtabstop = 2
     vim.opt.expandtab = true
-    vim.opt.spell = true
+    -- vim.opt.spell = true
   end,
 })
+
+-- Environment variables
 
 -- vim: ts=2 sts=2 sw=2 et

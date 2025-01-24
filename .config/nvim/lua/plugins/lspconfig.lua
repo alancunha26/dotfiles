@@ -12,7 +12,10 @@ return {
       },
     },
   },
-  { 'Bilal2453/luvit-meta', lazy = true },
+  {
+    'Bilal2453/luvit-meta',
+    lazy = true,
+  },
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -30,31 +33,6 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
-      -- Brief aside: **What is LSP?**
-      --
-      -- LSP is an initialism you've probably heard, but might not understand what it is.
-      --
-      -- LSP stands for Language Server Protocol. It's a protocol that helps editors
-      -- and language tooling communicate in a standardized fashion.
-      --
-      -- In general, you have a "server" which is some tool built to understand a particular
-      -- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
-      -- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
-      -- processes that communicate with some "client" - in this case, Neovim!
-      --
-      -- LSP provides Neovim with features like:
-      --  - Go to definition
-      --  - Find references
-      --  - Autocompletion
-      --  - Symbol Search
-      --  - and more!
-      --
-      -- Thus, Language Servers are external tools that must be installed separately from
-      -- Neovim. This is where `mason` and related plugins come into play.
-      --
-      -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
-      -- and elegantly composed help section, `:help lsp-vs-treesitter`
-
       --  This function gets run when an LSP attaches to a particular buffer.
       --    That is to say, every time a new file is opened that is associated with
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -157,10 +135,21 @@ return {
       if vim.g.have_nerd_font then
         local signs = { ERROR = '', WARN = '', INFO = '', HINT = '' }
         local diagnostic_signs = {}
+
         for type, icon in pairs(signs) do
           diagnostic_signs[vim.diagnostic.severity[type]] = icon
         end
-        vim.diagnostic.config { signs = { text = diagnostic_signs } }
+
+        vim.diagnostic.config {
+          signs = { text = diagnostic_signs },
+        }
+      end
+
+      local path = vim.fn.stdpath 'config' .. '/spell/en.utf-8.add'
+      local en_dictionary = {}
+
+      for word in io.open(path, 'r'):lines() do
+        table.insert(en_dictionary, word)
       end
 
       -- LSP servers and clients are able to communicate to each other what features they support.
@@ -198,6 +187,20 @@ return {
             -- Disables marksman autocompletion to use zk completion instead
             client.server_capabilities.completionProvider = false
           end,
+        },
+
+        -- See: https://github.com/williamboman/mason.nvim/issues/1531#issuecomment-1913117887
+        ltex = {
+          flags = {
+            debounce_text_changes = 300,
+          },
+          settings = {
+            ltex = {
+              language = 'en',
+              dictionary = { en = en_dictionary },
+              additionalRules = { languageModel = '~/.ngrams/' },
+            },
+          },
         },
 
         lua_ls = {
@@ -243,9 +246,15 @@ return {
         'emmet_language_server',
         'angularls',
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+      require('mason-tool-installer').setup {
+        ensure_installed = ensure_installed,
+      }
 
       require('mason-lspconfig').setup {
+        ensure_installed = {},
+        automatic_installation = true,
+
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
