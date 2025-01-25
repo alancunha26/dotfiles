@@ -96,4 +96,9 @@ vim.keymap.set('n', '<leader>msr', function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(':spellr\n', true, false, true), 'm', true)
 end, { desc = '[R]epeat spellcheck for all matches' })
 
+-- Inspect diagnostic
+vim.keymap.set('n', 'D', function()
+  vim.diagnostic.open_float()
+end)
+
 -- vim: ts=2 sts=2 sw=2 et

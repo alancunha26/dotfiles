@@ -197,15 +197,9 @@ return {
             ltex = {
               language = 'en',
               dictionary = { en = en_dictionary },
-              additionalRules = { languageModel = '~/.ngrams/' },
+              disabledRules = { en = { 'ARROWS' } },
             },
           },
-          -- on_attach = function()
-          --   -- See: https://github.com/williamboman/mason.nvim/issues/1531#issuecomment-1913117887
-          --   vim.env.JAVA_HOME = vim.fs.find(function(name)
-          --     return vim.startswith(name, 'jdk-')
-          --   end, { path = vim.fn.stdpath 'data' .. '/mason/packages/ltex-ls/', type = 'directory' })[1]
-          -- end,
         },
 
         lua_ls = {
@@ -213,27 +207,27 @@ return {
           -- filetypes = { ...},
           -- capabilities = {},
           settings = {
-            Lua = {
+            lua = {
               completion = {
-                callSnippet = 'Replace',
+                callsnippet = 'replace',
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+              -- you can toggle below to ignore lua_ls's noisy `missing-fields` warnings
               -- diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
       }
 
-      -- Ensure the servers and tools above are installed
-      --  To check the current status of installed tools and/or manually install
+      -- ensure the servers and tools above are installed
+      --  to check the current status of installed tools and/or manually install
       --  other tools, you can run
-      --    :Mason
+      --    :mason
       --
-      --  You can press `g?` for help in this menu.
+      --  you can press `g?` for help in this menu.
       require('mason').setup()
 
-      -- You can add other tools here that you want Mason to install
-      -- for you, so that they are available from within Neovim.
+      -- you can add other tools here that you want mason to install
+      -- for you, so that they are available from within neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua',
@@ -263,9 +257,9 @@ return {
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
+            -- this handles overriding only values explicitly passed
+            -- by the server configuration above. useful when disabling
+            -- certain features of an lsp (for example, turning off formatting for ts_ls)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
