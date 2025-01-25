@@ -195,9 +195,9 @@ return {
           },
           settings = {
             ltex = {
-              language = 'en',
-              dictionary = { en = en_dictionary },
-              disabledRules = { en = { 'ARROWS' } },
+              language = 'en-US',
+              dictionary = { ['en-US'] = en_dictionary },
+              disabledRules = { ['en-US'] = { 'ARROWS' } },
             },
           },
         },
